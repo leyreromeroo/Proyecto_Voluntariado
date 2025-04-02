@@ -209,7 +209,7 @@ Partial Class FrmPrincipal
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(672, 504)
+        Me.TextBox5.Location = New System.Drawing.Point(672, 254)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(292, 22)
         Me.TextBox5.TabIndex = 43
@@ -225,7 +225,7 @@ Partial Class FrmPrincipal
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(672, 400)
+        Me.TextBox3.Location = New System.Drawing.Point(672, 150)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(292, 22)
         Me.TextBox3.TabIndex = 41
@@ -234,7 +234,7 @@ Partial Class FrmPrincipal
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(669, 475)
+        Me.Label7.Location = New System.Drawing.Point(669, 225)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(143, 16)
         Me.Label7.TabIndex = 40
@@ -243,7 +243,7 @@ Partial Class FrmPrincipal
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(669, 368)
+        Me.Label6.Location = New System.Drawing.Point(669, 118)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(154, 16)
         Me.Label6.TabIndex = 39
