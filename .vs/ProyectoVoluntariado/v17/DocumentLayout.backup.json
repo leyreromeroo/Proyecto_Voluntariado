@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\leyre\\Desktop\\Proyecto_rep\\Proyecto_Voluntariado\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|C:\\Users\\leyre\\Desktop\\Proyecto_rep\\Proyecto_Voluntariado\\gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|c:\\users\\leyre\\desktop\\proyecto_rep\\proyecto_voluntariado\\gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|solutionrelative:gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|c:\\users\\leyre\\desktop\\proyecto_rep\\proyecto_voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|C:\\Users\\leyre\\Desktop\\Proyecto_rep\\Proyecto_Voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|solutionrelative:proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
@@ -47,7 +47,7 @@
               "RelativeDocumentMoniker": "Gestion\\GestionVoluntariados.vb",
               "ToolTip": "C:\\Users\\leyre\\Desktop\\Proyecto_rep\\Proyecto_Voluntariado\\Gestion\\GestionVoluntariados.vb",
               "RelativeToolTip": "Gestion\\GestionVoluntariados.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-04-02T17:56:02.069Z",
               "EditorCaption": ""
@@ -61,8 +61,7 @@
               "ToolTip": "C:\\Users\\leyre\\Desktop\\Proyecto_rep\\Proyecto_Voluntariado\\ProyectoVoluntariado\\FrmPrincipal.vb [Dise\u00F1o]",
               "RelativeToolTip": "ProyectoVoluntariado\\FrmPrincipal.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-02T08:35:20.157Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-04-02T08:35:20.157Z"
             }
           ]
         }

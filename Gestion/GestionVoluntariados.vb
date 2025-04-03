@@ -2,15 +2,36 @@
 
 Public Class GestionVoluntariados
     Private Voluntariados As List(Of Voluntariado)
-    Private servidor = "DESKTOP-096N7MC" ' Aquí pondremos el nombre de nuestro servidor de SqlServer
+    Private servidor As String = Environment.MachineName
+    Private servidorAlternativo As String = "."
     Private cadenaConexion = $"Data Source = {servidor}; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
 
-    Private servidorAlternativo As String = "."
+
 
     Public Sub New()
         Voluntariados = New List(Of Voluntariado)()
-
+        EstablecerServidor()
     End Sub
+
+    Private Sub EstablecerServidor()
+        servidor = If(ProbarConexion(servidor), servidor, If(ProbarConexion(servidorAlternativo), servidorAlternativo, Nothing))
+
+        If servidor IsNot Nothing Then
+            cadenaConexion = $"Data Source = {servidor}; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
+
+        End If
+    End Sub
+
+    Private Function ProbarConexion(servidor As String) As Boolean
+        Dim conexion As New SqlClient.SqlConnection($"Data Source = {servidor}; Initial Catalog = master; Integrated Security = SSPI;")
+        Try
+            conexion.Open()
+            conexion.Close()
+            Return True
+        Catch
+            Return False
+        End Try
+    End Function
 
     Public Sub AgregarVoluntariado(voluntariado As Voluntariado)
         Voluntariados.Add(voluntariado)
