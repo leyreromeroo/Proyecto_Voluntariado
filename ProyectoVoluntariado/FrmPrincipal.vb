@@ -74,4 +74,23 @@
         MessageBox.Show("Función para eliminar una acción")
     End Sub
 
+    Private Sub Label24_Click(sender As Object, e As EventArgs) Handles label24.Click
+
+    End Sub
+
+    Private Sub Label26_Click(sender As Object, e As EventArgs) Handles lblFechaFin.Click
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
