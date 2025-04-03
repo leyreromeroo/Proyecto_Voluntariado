@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\jrenz\\Desktop\\Proyecto-Voluntarido.Prog\\Proyecto_Voluntariado\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|C:\\Users\\jrenz\\Desktop\\Proyecto-Voluntarido.Prog\\Proyecto_Voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|c:\\users\\jrenz\\desktop\\proyecto-voluntarido.prog\\proyecto_voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|solutionrelative:proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|c:\\users\\jrenz\\desktop\\proyecto-voluntarido.prog\\proyecto_voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|C:\\Users\\jrenz\\Desktop\\Proyecto-Voluntarido.Prog\\Proyecto_Voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|solutionrelative:proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
@@ -117,8 +117,7 @@
               "RelativeToolTip": "Gestion\\GestionVoluntariados.vb",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-02T17:56:02.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T17:56:02.069Z"
             },
             {
               "$type": "Document",
