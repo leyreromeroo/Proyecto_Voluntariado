@@ -2,8 +2,14 @@
 
 Public Class GestionVoluntariados
     Private Voluntariados As List(Of Voluntariado)
+    Private servidor = "DESKTOP-096N7MC" ' Aquí pondremos el nombre de nuestro servidor de SqlServer
+    Private cadenaConexion = $"Data Source = {servidor}; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
+
+    Private servidorAlternativo As String = "."
+
     Public Sub New()
         Voluntariados = New List(Of Voluntariado)()
+
     End Sub
 
     Public Sub AgregarVoluntariado(voluntariado As Voluntariado)
