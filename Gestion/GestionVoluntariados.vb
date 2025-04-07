@@ -111,7 +111,7 @@ Public Class GestionVoluntariados
             Next
 
             ' 4. Insertar la actividad
-            Dim sqlInsertActividad As String = "INSERT INTO ACTIVIDAD (NOMBRE, ESTADO, DESCRIPCION, FECHAINICIO, FECHAFIN, CAPACIDAD, NIF_ORG, NOMBRE_TIPOACT) VALUES (@Nombre, 'DISPONIBLE', @Descripcion, @FechaInicio, @FechaFin, @Capacidad, @NIF_ORG, @TipoAct)"
+            Dim sqlInsertActividad As String = "INSERT INTO ACTIVIDAD (NOMBRE, ESTADO, DESCRIPCION, FECHAINICIO, FECHAFIN, CAPACIDAD, NIF_ORG, NOMBRE_TIPOACT) VALUES (@Nombre, 'DISPONIBLE', @Descripcion, @FechaInicio, @FechaFin, @Capacidad, @Nif_org, @TipoAct)"
 
             Dim cmdInsertActividad As New SqlCommand(sqlInsertActividad, oConexion)
             cmdInsertActividad.Parameters.AddWithValue("@Nombre", nombre)
@@ -119,12 +119,12 @@ Public Class GestionVoluntariados
             cmdInsertActividad.Parameters.AddWithValue("@FechaInicio", fechaInicio)
             cmdInsertActividad.Parameters.AddWithValue("@FechaFin", fechaFin)
             cmdInsertActividad.Parameters.AddWithValue("@Capacidad", capacidad)
-            cmdInsertActividad.Parameters.AddWithValue("@NIF_ORG", nif_org)
+            cmdInsertActividad.Parameters.AddWithValue("@Nif_org", nif_org)
             cmdInsertActividad.Parameters.AddWithValue("@TipoAct", tipo)
 
-            Dim numActividad As Integer = cmdInsertActividad.ExecuteScalar()
+            Dim filasActividad As Integer = cmdInsertActividad.ExecuteNonQuery()
 
-            If numActividad = 0 Then
+            If filasActividad = 0 Then
                 Return msgError = "No se pudo insertar la actividad"
             End If
 
