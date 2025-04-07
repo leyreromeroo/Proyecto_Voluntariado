@@ -10,3 +10,22 @@ C:\Users\leyre\Desktop\DAM1 24-25\24-25 Programacion\Segundo Trimestre\13 Manejo
 C:\Users\leyre\Desktop\DAM1 24-25\24-25 Programacion\Segundo Trimestre\13 Manejo de parámetros e y sender\ProyectoVoluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.exe
 C:\Users\leyre\Desktop\DAM1 24-25\24-25 Programacion\Segundo Trimestre\13 Manejo de parámetros e y sender\ProyectoVoluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.xml
 C:\Users\leyre\Desktop\DAM1 24-25\24-25 Programacion\Segundo Trimestre\13 Manejo de parámetros e y sender\ProyectoVoluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.pdb
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.exe.config
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.exe
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.pdb
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.xml
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.dll
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.dll
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.pdb
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.xml
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.pdb
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.xml
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.AssemblyReference.cache
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.FrmPrincipal.resources
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.Resources.resources
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.GenerateResource.cache
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.CoreCompileInputs.cache
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPres.2A98DD23.Up2Date
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.exe
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.xml
+C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.pdb
