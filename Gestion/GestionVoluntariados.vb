@@ -1,38 +1,53 @@
-﻿Imports Clases
+﻿Imports System.Collections.ObjectModel
+Imports System.Data.SqlClient
+Imports Clases
 
 Public Class GestionVoluntariados
-    Private Voluntariados As List(Of Voluntariado)
-    Private servidor As String = Environment.MachineName
-    Private servidorAlternativo As String = "."
-    Private cadenaConexion = $"Data Source = {servidor}; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
+    Private ReadOnly _voluntariados As List(Of Voluntariado)
+    'Private _servidor As String = Environment.MachineName
+    'Private ReadOnly _servidorAlternativo As String = "."
+    Private _cadenaConexion
 
-
+    Public ReadOnly Property Voluntariados As List(Of Voluntariado)
+        Get
+            Return _voluntariados
+        End Get
+    End Property
 
     Public Sub New()
-        Voluntariados = New List(Of Voluntariado)()
-        EstablecerServidor()
-    End Sub
-
-    Private Sub EstablecerServidor()
-        servidor = If(ProbarConexion(servidor), servidor, If(ProbarConexion(servidorAlternativo), servidorAlternativo, Nothing))
-
-        If servidor IsNot Nothing Then
-            cadenaConexion = $"Data Source = {servidor}; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
-
+        _voluntariados = New List(Of Voluntariado)()
+        'Comprobación para que la BBDD funcione siempre
+        Dim servidor As String
+        If Environment.MachineName = "4V-PRO-948" Then
+            servidor = "4V-PRO-948\SQLEXPRESS"
+        Else
+            servidor = "."
         End If
+
+        _cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
     End Sub
 
-    Private Function ProbarConexion(servidor As String) As Boolean
-        Dim conexion As New SqlClient.SqlConnection($"Data Source = {servidor}; Initial Catalog = master; Integrated Security = SSPI;")
-        Try
-            conexion.Open()
-            conexion.Close()
-            Return True
-        Catch
-            Return False
-        End Try
-    End Function
 
+    Public Function BuscarODS(ByRef msgError As String) As ReadOnlyCollection(Of ODS)
+        Dim listaOds As New List(Of ODS)
+        msgError = ""
+        Dim oConexion As New SqlConnection(_cadenaConexion)
+        Try
+            oConexion.Open()
+            Dim sql As String = "Select NUMODS, Nombre From ODS"
+            Dim cmdOds As New SqlCommand(sql, oConexion)
+            Dim drOds As SqlDataReader = cmdOds.ExecuteReader
+            Do While drOds.Read
+                Dim ods As New ODS(drOds("NUMODS").ToString, drOds("NOMBRE").ToString, drOds("DESCRIPCION").ToString)
+                listaOds.Add(ods)
+            Loop
+        Catch ex As Exception
+            msgError = ex.Message
+        Finally
+            oConexion.Close()
+        End Try
+        Return listaOds.AsReadOnly
+    End Function
     Public Sub AgregarVoluntariado(voluntariado As Voluntariado)
         Voluntariados.Add(voluntariado)
     End Sub

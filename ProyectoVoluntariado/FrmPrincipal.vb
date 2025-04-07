@@ -1,4 +1,9 @@
-﻿Public Class FrmPrincipal
+﻿Imports System.Collections.ObjectModel
+Imports System.Collections.Specialized.BitVector32
+Imports Clases
+Imports Gestion
+
+Public Class FrmPrincipal
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Configurar colores y estilos
         Me.BackColor = Color.LightSteelBlue
@@ -62,8 +67,23 @@
             .Location = New Point(450, 20)
         }
         Me.Controls.Add(dgvAcciones)
+
+        'en el Load que automáticamente (con datos puestos a mano  en código) se inserte una actividad con varios ODS en BD
+        actualizarCboOds()
+
     End Sub
 
+    Private Sub actualizarCboOds()
+        Dim msgError As String = ""
+        Dim listaOds As ReadOnlyCollection(Of ODS)
+        cboODS.Items.Clear()
+        listaOds = gestion.BuscarODS(msgError)
+        If Not String.IsNullOrWhiteSpace(msgError) Then
+            MessageBox.Show(msgError)
+            Exit Sub
+        End If
+        cboODS.Items.AddRange(listaOds.ToArray)
+    End Sub
     ' Evento para Agregar Acción
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs)
         MessageBox.Show("Función para agregar una acción")
@@ -74,23 +94,5 @@
         MessageBox.Show("Función para eliminar una acción")
     End Sub
 
-    Private Sub Label24_Click(sender As Object, e As EventArgs) Handles label24.Click
 
-    End Sub
-
-    Private Sub Label26_Click(sender As Object, e As EventArgs) Handles lblFechaFin.Click
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
 End Class

@@ -14,6 +14,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BBDD", "BBDD", "{56E7FC98-0
 		BBDD_ProyectoVoluntariado.sql = BBDD_ProyectoVoluntariado.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "imagenesODS", "imagenesODS", "{C46F005D-882C-444E-815D-B09B9289D7A5}"
+	ProjectSection(SolutionItems) = preProject
+		ImagenesODS\1.png = ImagenesODS\1.png
+		ImagenesODS\10.png = ImagenesODS\10.png
+		ImagenesODS\11.png = ImagenesODS\11.png
+		ImagenesODS\12.png = ImagenesODS\12.png
+		ImagenesODS\13.png = ImagenesODS\13.png
+		ImagenesODS\14.png = ImagenesODS\14.png
+		ImagenesODS\15.png = ImagenesODS\15.png
+		ImagenesODS\16.png = ImagenesODS\16.png
+		ImagenesODS\17.png = ImagenesODS\17.png
+		ImagenesODS\2.png = ImagenesODS\2.png
+		ImagenesODS\3.png = ImagenesODS\3.png
+		ImagenesODS\4.png = ImagenesODS\4.png
+		ImagenesODS\5.png = ImagenesODS\5.png
+		ImagenesODS\6.png = ImagenesODS\6.png
+		ImagenesODS\7.png = ImagenesODS\7.png
+		ImagenesODS\8.png = ImagenesODS\8.png
+		ImagenesODS\9.png = ImagenesODS\9.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
