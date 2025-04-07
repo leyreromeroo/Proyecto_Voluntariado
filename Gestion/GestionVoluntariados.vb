@@ -27,6 +27,31 @@ Public Class GestionVoluntariados
         _cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
     End Sub
 
+    Public Function AnyadirVoluntariado(codActividad As Integer, tipo As List(Of String), capacidad As Integer, estado As String, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, ByRef msgError As String) As String
+        Dim resultado As Boolean = False
+        msgError = ""
+        Dim oConexion As New SqlConnection(_cadenaConexion)
+        Try
+            oConexion.Open()
+            Dim sql As String = "INSERT INTO ACTIVIDAD (NOMBRE, ESTADO, DESCRIPCION, FECHAINICIO, FECHAFIN, CAPACIDAD, NIF_ORG, NOMBRE_TIPOACT) VALUES (@nombre, @estado, @descripcion, @fechaInicio, @fechaFin, @capacidad, @tipo)"
+            Dim cmdVoluntariado As New SqlCommand(sql, oConexion)
+            cmdVoluntariado.Parameters.AddWithValue("@nombre", nombre)
+            cmdVoluntariado.Parameters.AddWithValue("@estado", estado)
+            cmdVoluntariado.Parameters.AddWithValue("@descripcion", descripcion)
+            cmdVoluntariado.Parameters.AddWithValue("@fechaInicio", fechaInicio)
+            cmdVoluntariado.Parameters.AddWithValue("@fechaFin", fechaFin)
+            cmdVoluntariado.Parameters.AddWithValue("@capacidad", capacidad)
+            cmdVoluntariado.Parameters.AddWithValue("@nif_org", nif_org.CodigoEmpresa)
+            cmdVoluntariado.Parameters.AddWithValue("@tipo", tipo)
+            cmdVoluntariado.ExecuteNonQuery()
+            msgError = $"El voluntariado {nombre} ha sido agregado correctamente"
+        Catch ex As Exception
+            msgError = ex.Message
+        Finally
+            oConexion.Close()
+        End Try
+        Return msgError = $"El voluntariado {nombre} ha sido agregado correctamente"
+    End Function
 
     Public Function BuscarODS(ByRef msgError As String) As ReadOnlyCollection(Of ODS)
         Dim listaOds As New List(Of ODS)
