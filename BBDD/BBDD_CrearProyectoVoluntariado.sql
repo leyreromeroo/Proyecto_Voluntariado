@@ -1,5 +1,5 @@
 CREATE DATABASE PROYECTO_VOLUNTARIADO2
-DROP DATABASE PROYECTO_VOLUNTARIADO
+DROP DATABASE PROYECTO_VOLUNTARIADO2
 GO
 USE PROYECTO_VOLUNTARIADO2
 
@@ -88,7 +88,6 @@ CREATE TABLE PREFIERE_VOLUNTARIO_TIPOACTIVIDAD (
 CREATE TABLE ODS (
     NUMODS SMALLINT NOT NULL,
     NOMBRE NVARCHAR(50) NOT NULL,
-    DESCRIPCION TEXT,
     CONSTRAINT PK_ODS PRIMARY KEY (NUMODS)
 );
 
@@ -140,7 +139,7 @@ EXEC SP_BINDRULE TIPO_VOLUNTARIADO, 'TIPO_ACTIVIDAD.NOMBRE'
 INSERT INTO TIPO_ACTIVIDAD VALUES('SOCIAL')
 INSERT INTO TIPO_ACTIVIDAD VALUES('AMBIENTAL')
 INSERT INTO TIPO_ACTIVIDAD VALUES('TÉCNICO')
-INSERT INTO TIPO_ACTIVIDAD VALUES('EDUCATIVO')
+INSERT INTO TIPO_ACTIVIDAD VALUES('EDUCATIVO')--DA FALLO
 
 INSERT INTO VOLUNTARIO VALUES('44649843N','MARKEL', 'ALVARADO', 'GARIN', 'markel.alvarado@gmail.com', '07-09-2006', 'Calle Mayor')
 INSERT INTO VOLUNTARIO VALUES('12345789A','JAVIER', 'RENZULLI', '', 'renzulli@gmail.com', '02-12-2006', 'Calle Al Hillad')
@@ -152,7 +151,7 @@ INSERT INTO ORGANIZACIONES VALUES ('G60000000', 'Cruz Roja', 919876543, 'Madrid'
 INSERT INTO ORGANIZACIONES VALUES ('F60000000', 'Banco de Alimentos', 952345678, 'Málaga');
 INSERT INTO ORGANIZACIONES VALUES ('A12345678', 'ONG Sonrisas', 60123456, 'Valencia');
 
---INSERTS ACTIVIDAD
+--INSERTS ACTIVIDAD FALLO
 INSERT INTO ACTIVIDAD VALUES ('Limpieza de playa', 'DISPONIBLE', 'Limpieza de residuos en la playa de la Barceloneta', '2023-10-26', '2023-10-27', 20, 'B60000000', 'AMBIENTAL');
 INSERT INTO ACTIVIDAD VALUES ('Clases de español', 'COMPLETO', 'Clases de español para inmigrantes', '2023-11-01', '2023-11-30', 15, 'G60000000', 'EDUCATIVO');
 INSERT INTO ACTIVIDAD VALUES ('Recogida de alimentos', 'DISPONIBLE', 'Recogida de alimentos para familias necesitadas', '2023-11-15', '2023-11-16', 25, 'F60000000', 'SOCIAL');
@@ -168,26 +167,43 @@ INSERT INTO DISPONIBILIDAD VALUES ('12345789A', 'Martes');
 INSERT INTO DISPONIBILIDAD VALUES ('98765421Z', 'Miércoles');
 INSERT INTO DISPONIBILIDAD VALUES ('12378946D', 'Jueves');
 
+--FALLO
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('44649843N', 1);
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('12345789A', 2);
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('44649843N', 3);
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('12378946D', 4);
-
+--FALLO
 INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('44649843N', 'Medio Ambiente');
 INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('12345789A', 'Educación');
 INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('44649843N', 'Asistencia Social');
 INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('12378946D', 'Medio Ambiente');
 
-INSERT INTO ODS VALUES (1, 'Fin de la pobreza', 'Poner fin a la pobreza en todas sus formas en todo el mundo');
-INSERT INTO ODS VALUES (2, 'Hambre cero', 'Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición y promover la agricultura sostenible');
-INSERT INTO ODS VALUES (3, 'Salud y bienestar', 'Garantizar una vida sana y promover el bienestar para todos en todas las edades');
-INSERT INTO ODS VALUES (4, 'Educación de calidad', 'Garantizar una educación inclusiva, equitativa y de calidad y promover oportunidades de aprendizaje durante toda la vida para todos');
+INSERT INTO ODS (NUMODS, NOMBRE) VALUES 
+    (1, 'Fin de la pobreza'),
+    (2, 'Hambre cero'),
+    (3, 'Salud y bienestar'),
+    (4, 'Educación de calidad'),
+    (5, 'Igualdad de género'),
+    (6, 'Agua limpia y saneamiento'),
+    (7, 'Energía asequible y no contaminante'),
+    (8, 'Trabajo decente y crecimiento económico'),
+    (9, 'Industria, innovación e infraestructura'),
+    (10, 'Reducción de las desigualdades'),
+    (11, 'Ciudades y comunidades sostenibles'),
+    (12, 'Producción y consumo responsables'),
+    (13, 'Acción por el clima'),
+    (14, 'Vida submarina'),
+    (15, 'Vida de ecosistemas terrestres'),
+    (16, 'Paz, justicia e instituciones sólidas'),
+    (17, 'Alianzas para lograr los objetivos');
 
+--FALLO
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (1, 1);
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (2, 2);
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (3, 3);
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (4, 4);
 
+--FALLO
 INSERT INTO NOTICIAS VALUES ('Éxito en la limpieza de la playa', 'Evento', '2023-10-28', 1);
 INSERT INTO NOTICIAS VALUES ('Nuevos voluntarios para las clases de español', 'Noticia', '2023-11-02', 2);
 INSERT INTO NOTICIAS VALUES ('Gran recogida de alimentos', 'Evento', '2023-11-17', 3);

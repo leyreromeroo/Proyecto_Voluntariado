@@ -12,3 +12,17 @@ C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\Gestion\obj\D
 C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.dll
 C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.xml
 C:\Users\marke\Desktop\PROYECTO_APP_4V_VOLUN\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.pdb
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\bin\Debug\Gestion.dll
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\bin\Debug\Gestion.pdb
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\bin\Debug\Gestion.xml
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\bin\Debug\Clases.dll
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\bin\Debug\Clases.pdb
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\bin\Debug\Clases.xml
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.vbproj.AssemblyReference.cache
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.Resources.resources
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.vbproj.GenerateResource.cache
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.vbproj.CoreCompileInputs.cache
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.vbproj.Up2Date
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.dll
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.xml
+C:\Users\leyre\Desktop\prog\Proyecto_Voluntariado\Gestion\obj\Debug\Gestion.pdb

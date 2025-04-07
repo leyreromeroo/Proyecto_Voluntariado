@@ -3,12 +3,12 @@
 
     Public Property Numero As Integer
     Public Property Nombre As String
-    Public Property Descripcion As String
+    'Public Property Descripcion As String
 
-    Public Sub New(numero As Integer, nombre As String, descripcion As String)
+    Public Sub New(numero As Integer, nombre As String)
         Me.Numero = numero
         Me.Nombre = nombre
-        Me.Descripcion = descripcion
+        'Me.Descripcion = descripcion
     End Sub
 
     Public Overrides Function Equals(obj As Object) As Boolean

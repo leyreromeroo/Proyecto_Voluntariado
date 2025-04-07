@@ -60,7 +60,7 @@ Partial Class FrmPrincipal
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cboTipoActividad = New System.Windows.Forms.ComboBox()
         Me.lstDatosAnyadidos = New System.Windows.Forms.ListBox()
         Me.cboODS = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -376,7 +376,7 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.Controls.Add(Me.Button5)
         Me.grpGestionAct.Controls.Add(Me.Label11)
         Me.grpGestionAct.Controls.Add(Me.ListBox2)
-        Me.grpGestionAct.Controls.Add(Me.ComboBox1)
+        Me.grpGestionAct.Controls.Add(Me.cboTipoActividad)
         Me.grpGestionAct.Controls.Add(Me.lstDatosAnyadidos)
         Me.grpGestionAct.Controls.Add(Me.cboODS)
         Me.grpGestionAct.Controls.Add(Me.Label2)
@@ -442,7 +442,7 @@ Partial Class FrmPrincipal
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(379, 244)
+        Me.Button3.Location = New System.Drawing.Point(408, 244)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(113, 33)
@@ -464,7 +464,7 @@ Partial Class FrmPrincipal
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(389, 116)
+        Me.Label11.Location = New System.Drawing.Point(409, 116)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(112, 16)
         Me.Label11.TabIndex = 106
@@ -474,38 +474,38 @@ Partial Class FrmPrincipal
         '
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.ItemHeight = 16
-        Me.ListBox2.Location = New System.Drawing.Point(322, 172)
+        Me.ListBox2.Location = New System.Drawing.Point(379, 172)
         Me.ListBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(233, 68)
+        Me.ListBox2.Size = New System.Drawing.Size(176, 68)
         Me.ListBox2.TabIndex = 105
         '
-        'ComboBox1
+        'cboTipoActividad
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(322, 139)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(233, 24)
-        Me.ComboBox1.TabIndex = 104
+        Me.cboTipoActividad.FormattingEnabled = True
+        Me.cboTipoActividad.Location = New System.Drawing.Point(379, 139)
+        Me.cboTipoActividad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cboTipoActividad.Name = "cboTipoActividad"
+        Me.cboTipoActividad.Size = New System.Drawing.Size(176, 24)
+        Me.cboTipoActividad.TabIndex = 104
         '
         'lstDatosAnyadidos
         '
         Me.lstDatosAnyadidos.FormattingEnabled = True
         Me.lstDatosAnyadidos.ItemHeight = 16
-        Me.lstDatosAnyadidos.Location = New System.Drawing.Point(51, 170)
+        Me.lstDatosAnyadidos.Location = New System.Drawing.Point(24, 170)
         Me.lstDatosAnyadidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstDatosAnyadidos.Name = "lstDatosAnyadidos"
-        Me.lstDatosAnyadidos.Size = New System.Drawing.Size(233, 68)
+        Me.lstDatosAnyadidos.Size = New System.Drawing.Size(329, 68)
         Me.lstDatosAnyadidos.TabIndex = 101
         '
         'cboODS
         '
         Me.cboODS.FormattingEnabled = True
-        Me.cboODS.Location = New System.Drawing.Point(51, 139)
+        Me.cboODS.Location = New System.Drawing.Point(24, 139)
         Me.cboODS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cboODS.Name = "cboODS"
-        Me.cboODS.Size = New System.Drawing.Size(233, 24)
+        Me.cboODS.Size = New System.Drawing.Size(329, 24)
         Me.cboODS.TabIndex = 100
         '
         'Label2
@@ -807,7 +807,7 @@ Partial Class FrmPrincipal
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Label10 As Label
     Friend WithEvents ListBox2 As ListBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cboTipoActividad As ComboBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Button5 As Button

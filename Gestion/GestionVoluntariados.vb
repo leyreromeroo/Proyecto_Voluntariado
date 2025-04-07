@@ -27,7 +27,7 @@ Public Class GestionVoluntariados
         _cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
     End Sub
 
-    Public Function AnyadirVoluntariado(codActividad As Integer, tipo As List(Of String), capacidad As Integer, estado As String, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), ByRef msgError As String) As String
+    Public Function AnyadirVoluntariado(codActividad As Integer, tipo As List(Of String), capacidad As Integer, estado As String, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario), ByRef msgError As String) As String
         ' Validaciones iniciales
         If String.IsNullOrWhiteSpace(nombre) Then
             msgError = "El nombre no puede estar vacío"
@@ -71,6 +71,8 @@ Public Class GestionVoluntariados
             msgError = "Debe seleccionar al menos un ODS"
             Return False
         End If
+
+        If listaVoluntarios Is Nothing OrElse listaVoluntarios.Count = 0 Then Return "Debe asignar al menos un voluntario"
 
         Dim oConexion As New SqlConnection(_cadenaConexion)
         ' Dim transaction As SqlTransaction = Nothing
@@ -141,12 +143,21 @@ Public Class GestionVoluntariados
                     Return msgError = $"No se pudo asociar el ODS {ods} al voluntariado"
                 End If
             Next
+
+            ' 6. Añadir Voluntarios
+            For Each dni In listaVoluntarios
+                Dim cmdVol As New SqlCommand("INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD (DNI, CODACTIVIDAD) VALUES (@dni, @idActividad)", oConexion)
+                cmdVol.Parameters.AddWithValue("@dni", dni)
+                cmdVol.Parameters.AddWithValue("@idActividad", codActividad)
+                cmdVol.ExecuteNonQuery()
+            Next
+
         Catch ex As Exception
             Return msgError = ex.Message
         Finally
             oConexion.Close()
         End Try
-        Return msgError = $"El voluntariado {nombre} ha sido agregado correctamente"
+        Return msgError = $"Voluntariado {nombre} creado correctamente (ID: {codActividad})"
     End Function
 
     Public Function BuscarODS(ByRef msgError As String) As ReadOnlyCollection(Of ODS)
@@ -159,7 +170,7 @@ Public Class GestionVoluntariados
             Dim cmdOds As New SqlCommand(sql, oConexion)
             Dim drOds As SqlDataReader = cmdOds.ExecuteReader
             Do While drOds.Read
-                Dim ods As New ODS(drOds("NUMODS").ToString, drOds("NOMBRE").ToString, drOds("DESCRIPCION").ToString)
+                Dim ods As New ODS(drOds("NUMODS").ToString, drOds("NOMBRE").ToString)
                 listaOds.Add(ods)
             Loop
         Catch ex As Exception
