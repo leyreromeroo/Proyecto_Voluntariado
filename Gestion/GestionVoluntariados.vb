@@ -48,6 +48,21 @@ Public Class GestionVoluntariados
         End Try
         Return listaOds.AsReadOnly
     End Function
+    Public Function BuscarAlumnosDelMismoTipo(nombreTìpo As String) As List(Of Voluntario)
+        Dim listaVoluntarios As New List(Of Voluntario)
+        Dim conexion As New SqlConnection(_cadenaConexion)
+        conexion.Open()
+        Dim consulta As String = $"SELECT VOLUNTARIO.NOMBRE, VOLUNTARIO.APELLIDO1 FROM VOLUNTARIO INNER JOIN PREFIERE_VOLUNTARIO_TIPOACTIVIDAD ON VOLUNTARIO.DNI = PREFIERE_VOLUNTARIO_TIPOACTIVIDAD.DNI WHERE PREFIERE_VOLUNTARIO_TIPOACTIVIDAD.NOMBRE_TIPOACT ={nombreTìpo} ;"
+        Dim cmdBuscarAlumnosDelMismoTipo As New SqlCommand(consulta, conexion)
+        Dim drBuscarAlumnosDelMismoTipo As SqlDataReader = cmdBuscarAlumnosDelMismoTipo.ExecuteReader
+        Do While drBuscarAlumnosDelMismoTipo.Read
+            Dim vol As New Voluntario(drBuscarAlumnosDelMismoTipo("NOMBRE"), drBuscarAlumnosDelMismoTipo("Apellido1"))
+            listaVoluntarios.Add(vol)
+        Loop
+        Return listaVoluntarios
+        conexion.Close()
+    End Function
+
     Public Sub AgregarVoluntariado(voluntariado As Voluntariado)
         Voluntariados.Add(voluntariado)
     End Sub
