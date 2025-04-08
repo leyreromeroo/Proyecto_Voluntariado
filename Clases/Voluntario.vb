@@ -53,4 +53,8 @@
         Return other IsNot Nothing AndAlso
                DNI = other.DNI
     End Function
+    Public Overrides Function ToString() As String
+        Return $"{DNI} - {Nombre} {Apellido1}"
+    End Function
+
 End Class

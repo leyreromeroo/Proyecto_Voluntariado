@@ -195,6 +195,35 @@ Public Class GestionVoluntariados
         conexion.Close()
     End Function
 
+    Public Function ListaTiposActivi() As List(Of TipoVoluntariado)
+        Dim conexion As New SqlConnection(_cadenaConexion)
+        conexion.Open()
+
+        Dim consultaSQL As String = $"SELECT * FROM TIPO_ACTIVIDAD"
+        Dim cmdTipos As New SqlCommand(consultaSQL, conexion)
+        Dim drTipos As SqlDataReader = cmdTipos.ExecuteReader
+        Dim listaTodosTiposAct As New List(Of TipoVoluntariado)
+        While drTipos.Read
+            listaTodosTiposAct.Add(New TipoVoluntariado(drTipos("NOMBRE")))
+        End While
+        conexion.Close()
+        Return listaTodosTiposAct
+    End Function
+
+    Public Function MostrarAlumnos() As List(Of Voluntario)
+        Dim listaVoluntarios As New List(Of Voluntario)
+        Dim conexion As New SqlConnection(_cadenaConexion)
+        conexion.Open()
+        Dim consulta As String = $"SELECT VOLUNTARIO.DNI,VOLUNTARIO.NOMBRE,VOLUNTARIO.APELLIDO1 FROM VOLUNTARIO"
+        Dim cmdMostrarAlumnos As New SqlCommand(consulta, conexion)
+        Dim drMostrarAlumnos As SqlDataReader = cmdMostrarAlumnos.ExecuteReader
+        Do While drMostrarAlumnos.Read
+            Dim vol As New Voluntario(drMostrarAlumnos("DNI"), drMostrarAlumnos("NOMBRE"), drMostrarAlumnos("Apellido1"))
+            listaVoluntarios.Add(vol)
+        Loop
+        conexion.Close()
+        Return listaVoluntarios
+    End Function
     Public Sub AgregarVoluntariado(voluntariado As Voluntariado)
         Voluntariados.Add(voluntariado)
     End Sub
