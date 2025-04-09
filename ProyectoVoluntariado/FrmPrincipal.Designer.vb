@@ -88,8 +88,9 @@ Partial Class FrmPrincipal
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.txtbEstado = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -595,8 +596,9 @@ Partial Class FrmPrincipal
         '
         'grpEdicionAct
         '
+        Me.grpEdicionAct.Controls.Add(Me.Button1)
+        Me.grpEdicionAct.Controls.Add(Me.txtbEstado)
         Me.grpEdicionAct.Controls.Add(Me.ComboBox2)
-        Me.grpEdicionAct.Controls.Add(Me.ComboBox1)
         Me.grpEdicionAct.Controls.Add(Me.GroupBox1)
         Me.grpEdicionAct.Controls.Add(Me.btnGuardar)
         Me.grpEdicionAct.Controls.Add(Me.Label6)
@@ -790,15 +792,6 @@ Partial Class FrmPrincipal
         Me.TextBox7.TabIndex = 75
         Me.TextBox7.Text = "ESCRIBIR NOMBRE ACTIVIDAD"
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(9, 89)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(176, 24)
-        Me.ComboBox1.TabIndex = 124
-        '
         'ComboBox2
         '
         Me.ComboBox2.FormattingEnabled = True
@@ -807,6 +800,26 @@ Partial Class FrmPrincipal
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(280, 24)
         Me.ComboBox2.TabIndex = 125
+        '
+        'txtbEstado
+        '
+        Me.txtbEstado.Location = New System.Drawing.Point(9, 89)
+        Me.txtbEstado.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtbEstado.Name = "txtbEstado"
+        Me.txtbEstado.ReadOnly = True
+        Me.txtbEstado.Size = New System.Drawing.Size(127, 22)
+        Me.txtbEstado.TabIndex = 124
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(142, 89)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(147, 25)
+        Me.Button1.TabIndex = 126
+        Me.Button1.Text = "CAMBIAR ESTADO"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'FrmPrincipal
         '
@@ -903,6 +916,7 @@ Partial Class FrmPrincipal
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents btnCrearActividad As Button
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents txtbEstado As TextBox
 End Class
