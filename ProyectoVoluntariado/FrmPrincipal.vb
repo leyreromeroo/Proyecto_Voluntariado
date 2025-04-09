@@ -12,8 +12,11 @@ Public Class FrmPrincipal
 
         ActualizarCboOds()
         'cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
-        Dim listaAlumnos As List(Of Voluntario) = gestion.MostrarAlumnos
-        lstbAlumn.DataSource = listaAlumnos
+
+        Dim lista As List(Of Voluntario) = gestion.MostrarAlumnos()
+        For Each vol As Voluntario In lista
+            lstbAlumn.Items.Add(vol)
+        Next
 
 
         Dim tiposActividades As List(Of TipoVoluntariado) = gestor.ListaTiposActivi()
@@ -88,5 +91,28 @@ Public Class FrmPrincipal
 
     Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
 
+    End Sub
+    Private Sub btnAnadirAlumnos_Click(sender As Object, e As EventArgs) Handles btnAnadirAlumnos.Click
+        If lstbAlumn.SelectedItem IsNot Nothing Then
+            Dim voluntarioSeleccionado As Voluntario = lstbAlumn.SelectedItem
+            lstbAlumn.Items.Remove(voluntarioSeleccionado)
+            lstbAlumnAnadidos.Items.Add(voluntarioSeleccionado)
+        Else
+            MessageBox.Show("Selecciona un alumno antes de añadir.")
+        End If
+    End Sub
+
+    Private Sub btnEliminarAlumnos_Click(sender As Object, e As EventArgs) Handles btnEliminarAlumnos.Click
+        If lstbAlumnAnadidos.SelectedItem IsNot Nothing Then
+            Dim voluntarioSeleccionado As Voluntario = lstbAlumnAnadidos.SelectedItem
+            lstbAlumnAnadidos.Items.Remove(voluntarioSeleccionado)
+            lstbAlumn.Items.Add(voluntarioSeleccionado)
+        Else
+            MessageBox.Show("Selecciona un alumno antes de añadir.")
+        End If
+    End Sub
+
+    Private Sub btnCrearActividad_Click(sender As Object, e As EventArgs) Handles btnCrearActividad.Click
+        gestor.AnyadirVoluntariado()
     End Sub
 End Class

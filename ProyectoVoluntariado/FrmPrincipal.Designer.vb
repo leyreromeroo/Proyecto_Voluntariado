@@ -32,7 +32,6 @@ Partial Class FrmPrincipal
         Me.lblCapacidad = New System.Windows.Forms.Label()
         Me.lblTipo = New System.Windows.Forms.Label()
         Me.lblNombre = New System.Windows.Forms.Label()
-        Me.txtNombreCambiar = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -51,6 +50,11 @@ Partial Class FrmPrincipal
         Me.grpConsultarAct = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.grpGestionAct = New System.Windows.Forms.GroupBox()
+        Me.btnCrearActividad = New System.Windows.Forms.Button()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.lstbAlumnAnadidos = New System.Windows.Forms.ListBox()
+        Me.lstbAlumn = New System.Windows.Forms.ListBox()
         Me.btnAnadirODS = New System.Windows.Forms.Button()
         Me.btnAñadirTipoAc = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -65,7 +69,6 @@ Partial Class FrmPrincipal
         Me.lstDatosAnyadidos = New System.Windows.Forms.ListBox()
         Me.cboODS = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.listbCampo = New System.Windows.Forms.ListBox()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.grpEdicionAct = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -85,10 +88,8 @@ Partial Class FrmPrincipal
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.lstbAlumn = New System.Windows.Forms.ListBox()
-        Me.lstbAlumnAnadidos = New System.Windows.Forms.ListBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -185,15 +186,6 @@ Partial Class FrmPrincipal
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(327, 16)
         Me.lblNombre.TabIndex = 78
-        '
-        'txtNombreCambiar
-        '
-        Me.txtNombreCambiar.Location = New System.Drawing.Point(6, 61)
-        Me.txtNombreCambiar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtNombreCambiar.Name = "txtNombreCambiar"
-        Me.txtNombreCambiar.Size = New System.Drawing.Size(292, 22)
-        Me.txtNombreCambiar.TabIndex = 75
-        Me.txtNombreCambiar.Text = "ESCRIBIR NOMBRE ACTIVIDAD"
         '
         'Label6
         '
@@ -344,11 +336,11 @@ Partial Class FrmPrincipal
         Me.grpConsultarAct.Controls.Add(Me.Label31)
         Me.grpConsultarAct.Controls.Add(Me.lblFechaFin)
         Me.grpConsultarAct.Controls.Add(Me.label24)
-        Me.grpConsultarAct.Location = New System.Drawing.Point(662, 22)
+        Me.grpConsultarAct.Location = New System.Drawing.Point(662, 20)
         Me.grpConsultarAct.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpConsultarAct.Name = "grpConsultarAct"
         Me.grpConsultarAct.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpConsultarAct.Size = New System.Drawing.Size(603, 321)
+        Me.grpConsultarAct.Size = New System.Drawing.Size(603, 318)
         Me.grpConsultarAct.TabIndex = 103
         Me.grpConsultarAct.TabStop = False
         Me.grpConsultarAct.Text = "CONSULTAR ACTIVIDAD"
@@ -364,6 +356,7 @@ Partial Class FrmPrincipal
         '
         'grpGestionAct
         '
+        Me.grpGestionAct.Controls.Add(Me.btnCrearActividad)
         Me.grpGestionAct.Controls.Add(Me.Label15)
         Me.grpGestionAct.Controls.Add(Me.Label14)
         Me.grpGestionAct.Controls.Add(Me.lstbAlumnAnadidos)
@@ -395,10 +388,59 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpGestionAct.Name = "grpGestionAct"
         Me.grpGestionAct.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpGestionAct.Size = New System.Drawing.Size(604, 625)
+        Me.grpGestionAct.Size = New System.Drawing.Size(604, 677)
         Me.grpGestionAct.TabIndex = 104
         Me.grpGestionAct.TabStop = False
         Me.grpGestionAct.Text = "GESTION DE ACTIVIDADES"
+        '
+        'btnCrearActividad
+        '
+        Me.btnCrearActividad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCrearActividad.Location = New System.Drawing.Point(228, 625)
+        Me.btnCrearActividad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCrearActividad.Name = "btnCrearActividad"
+        Me.btnCrearActividad.Size = New System.Drawing.Size(113, 33)
+        Me.btnCrearActividad.TabIndex = 123
+        Me.btnCrearActividad.Text = "CREAR ACTIVIDAD"
+        Me.btnCrearActividad.UseVisualStyleBackColor = True
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(360, 295)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(146, 16)
+        Me.Label15.TabIndex = 122
+        Me.Label15.Text = "ALUMNOS AÑADIDOS"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(282, 384)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(21, 16)
+        Me.Label14.TabIndex = 121
+        Me.Label14.Text = "=>"
+        '
+        'lstbAlumnAnadidos
+        '
+        Me.lstbAlumnAnadidos.FormattingEnabled = True
+        Me.lstbAlumnAnadidos.ItemHeight = 16
+        Me.lstbAlumnAnadidos.Location = New System.Drawing.Point(317, 329)
+        Me.lstbAlumnAnadidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lstbAlumnAnadidos.Name = "lstbAlumnAnadidos"
+        Me.lstbAlumnAnadidos.Size = New System.Drawing.Size(238, 116)
+        Me.lstbAlumnAnadidos.TabIndex = 120
+        '
+        'lstbAlumn
+        '
+        Me.lstbAlumn.FormattingEnabled = True
+        Me.lstbAlumn.ItemHeight = 16
+        Me.lstbAlumn.Location = New System.Drawing.Point(34, 329)
+        Me.lstbAlumn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lstbAlumn.Name = "lstbAlumn"
+        Me.lstbAlumn.Size = New System.Drawing.Size(238, 116)
+        Me.lstbAlumn.TabIndex = 119
         '
         'btnAnadirODS
         '
@@ -540,16 +582,6 @@ Partial Class FrmPrincipal
         Me.Label2.TabIndex = 98
         Me.Label2.Text = "ODS"
         '
-        'listbCampo
-        '
-        Me.listbCampo.FormattingEnabled = True
-        Me.listbCampo.ItemHeight = 16
-        Me.listbCampo.Location = New System.Drawing.Point(6, 91)
-        Me.listbCampo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.listbCampo.Name = "listbCampo"
-        Me.listbCampo.Size = New System.Drawing.Size(291, 20)
-        Me.listbCampo.TabIndex = 98
-        '
         'btnGuardar
         '
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -563,11 +595,11 @@ Partial Class FrmPrincipal
         '
         'grpEdicionAct
         '
+        Me.grpEdicionAct.Controls.Add(Me.ComboBox2)
+        Me.grpEdicionAct.Controls.Add(Me.ComboBox1)
         Me.grpEdicionAct.Controls.Add(Me.GroupBox1)
         Me.grpEdicionAct.Controls.Add(Me.btnGuardar)
         Me.grpEdicionAct.Controls.Add(Me.Label6)
-        Me.grpEdicionAct.Controls.Add(Me.txtNombreCambiar)
-        Me.grpEdicionAct.Controls.Add(Me.listbCampo)
         Me.grpEdicionAct.Location = New System.Drawing.Point(662, 381)
         Me.grpEdicionAct.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpEdicionAct.Name = "grpEdicionAct"
@@ -758,43 +790,23 @@ Partial Class FrmPrincipal
         Me.TextBox7.TabIndex = 75
         Me.TextBox7.Text = "ESCRIBIR NOMBRE ACTIVIDAD"
         '
-        'lstbAlumn
+        'ComboBox1
         '
-        Me.lstbAlumn.FormattingEnabled = True
-        Me.lstbAlumn.ItemHeight = 16
-        Me.lstbAlumn.Location = New System.Drawing.Point(34, 329)
-        Me.lstbAlumn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lstbAlumn.Name = "lstbAlumn"
-        Me.lstbAlumn.Size = New System.Drawing.Size(238, 116)
-        Me.lstbAlumn.TabIndex = 119
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(9, 89)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(176, 24)
+        Me.ComboBox1.TabIndex = 124
         '
-        'lstbAlumnAnadidos
+        'ComboBox2
         '
-        Me.lstbAlumnAnadidos.FormattingEnabled = True
-        Me.lstbAlumnAnadidos.ItemHeight = 16
-        Me.lstbAlumnAnadidos.Location = New System.Drawing.Point(317, 329)
-        Me.lstbAlumnAnadidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lstbAlumnAnadidos.Name = "lstbAlumnAnadidos"
-        Me.lstbAlumnAnadidos.Size = New System.Drawing.Size(238, 116)
-        Me.lstbAlumnAnadidos.TabIndex = 120
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(282, 384)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(21, 16)
-        Me.Label14.TabIndex = 121
-        Me.Label14.Text = "=>"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(360, 295)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(146, 16)
-        Me.Label15.TabIndex = 122
-        Me.Label15.Text = "ALUMNOS AÑADIDOS"
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(9, 59)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(280, 24)
+        Me.ComboBox2.TabIndex = 125
         '
         'FrmPrincipal
         '
@@ -835,7 +847,6 @@ Partial Class FrmPrincipal
     Friend WithEvents lblCapacidad As Label
     Friend WithEvents lblTipo As Label
     Friend WithEvents lblNombre As Label
-    Friend WithEvents txtNombreCambiar As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label31 As Label
@@ -853,7 +864,6 @@ Partial Class FrmPrincipal
     Friend WithEvents lblDescripcion As Label
     Friend WithEvents grpConsultarAct As GroupBox
     Friend WithEvents grpGestionAct As GroupBox
-    Friend WithEvents listbCampo As ListBox
     Friend WithEvents btnGuardar As Button
     Friend WithEvents grpEdicionAct As GroupBox
     Friend WithEvents Label2 As Label
@@ -892,4 +902,7 @@ Partial Class FrmPrincipal
     Friend WithEvents lstbAlumn As ListBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
+    Friend WithEvents btnCrearActividad As Button
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
 End Class
