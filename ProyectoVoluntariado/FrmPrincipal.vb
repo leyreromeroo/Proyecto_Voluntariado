@@ -113,6 +113,14 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub btnCrearActividad_Click(sender As Object, e As EventArgs) Handles btnCrearActividad.Click
-        gestor.AnyadirVoluntariado()
+        Dim nombreActividad As String = txtNombre.Text
+        Dim cantidadAlumnos As Integer = txtCapacidad.Text
+        Dim tipoActividad As New List(Of TipoVoluntariado)
+        For i As Integer = 0 To lstTipoActividad.Items.Count - 1
+            tipoActividad.Add(lstTipoActividad.Items(i))
+        Next
+        gestor.CrearActividad(tipoActividad, cantidadAlumnos, )
     End Sub
+
+
 End Class

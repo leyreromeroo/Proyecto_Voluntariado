@@ -27,7 +27,7 @@ Public Class GestionVoluntariados
         _cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
     End Sub
 
-    Public Function AnyadirVoluntariado(codActividad As Integer, tipo As List(Of String), capacidad As Integer, estado As String, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario), ByRef msgError As String) As String
+    Public Function CrearActividad(tipo As List(Of TipoVoluntariado), capacidad As Integer, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario), ByRef msgError As String) As String
         ' Validaciones iniciales
         If String.IsNullOrWhiteSpace(nombre) Then
             msgError = "El nombre no puede estar vacío"
@@ -56,10 +56,6 @@ Public Class GestionVoluntariados
 
         If String.IsNullOrWhiteSpace(nif_org.NIF) Then
             msgError = "El NIF de la organización no puede estar vacío"
-            Return False
-        End If
-        If String.IsNullOrWhiteSpace(estado) Then
-            msgError = "El estado no puede estar vacío"
             Return False
         End If
         If tipo Is Nothing OrElse tipo.Count = 0 Then
@@ -134,7 +130,7 @@ Public Class GestionVoluntariados
             For Each ods In listaODS
                 Dim sqlInsertODS As String = "INSERT INTO CONTIENE_VOLUNTARIADO_ODS (CODACTIVIDAD, NUMODS) VALUES (@CodActividad, @NumODS)"
                 Dim cmdInsertODS As New SqlCommand(sqlInsertODS, oConexion)
-                cmdInsertODS.Parameters.AddWithValue("@CodActividad", codActividad)
+                'cmdInsertODS.Parameters.AddWithValue("@CodActividad", codActividad)
                 cmdInsertODS.Parameters.AddWithValue("@NumODS", ods)
 
                 Dim rowsAffected As Integer = cmdInsertODS.ExecuteNonQuery()
@@ -143,10 +139,12 @@ Public Class GestionVoluntariados
                     Return msgError = $"No se pudo asociar el ODS {ods} al voluntariado"
                 End If
             Next
-
+            Dim cmdCodActividad As New SqlCommand($"SELECT PARTICIPA_VOLUNTARIO_ACTIVIDAD.CODACTIVIDAD FROM PARTICIPA_VOLUNTARIO_ACTIVIDAD WHERE PARTICIPA_VOLUNTARIO_ACTIVIDAD.CODACTIVIDAD IN (SELECT ACTIVIDAD.CODACTIVIDAD FROM ACTIVIDAD WHERE ACTIVIDAD.NOMBRE = {nombre}")
+            Dim codActividad As Integer = Integer.TryParse(cmdCodActividad.ToString, codActividad)
             ' 6. Añadir Voluntarios
             For Each dni In listaVoluntarios
                 Dim cmdVol As New SqlCommand("INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD (DNI, CODACTIVIDAD) VALUES (@dni, @idActividad)", oConexion)
+
                 cmdVol.Parameters.AddWithValue("@dni", dni)
                 cmdVol.Parameters.AddWithValue("@idActividad", codActividad)
                 cmdVol.ExecuteNonQuery()
@@ -157,7 +155,7 @@ Public Class GestionVoluntariados
         Finally
             oConexion.Close()
         End Try
-        Return msgError = $"Voluntariado {nombre} creado correctamente (ID: {codActividad})"
+        Return msgError = $"Voluntariado {nombre} creado correctamente)"
     End Function
 
     Public Function BuscarODS(ByRef msgError As String) As ReadOnlyCollection(Of ODS)
