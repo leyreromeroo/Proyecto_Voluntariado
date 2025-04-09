@@ -54,8 +54,8 @@ Partial Class FrmPrincipal
         Me.btnAnadirODS = New System.Windows.Forms.Button()
         Me.btnAñadirTipoAc = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnAnadirAlumnos = New System.Windows.Forms.Button()
+        Me.btnEliminarAlumnos = New System.Windows.Forms.Button()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.btnEliminarTipoAc = New System.Windows.Forms.Button()
         Me.btnEliminarODS = New System.Windows.Forms.Button()
@@ -86,6 +86,9 @@ Partial Class FrmPrincipal
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.lstbAlumn = New System.Windows.Forms.ListBox()
+        Me.lstbAlumnAnadidos = New System.Windows.Forms.ListBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -115,11 +118,11 @@ Partial Class FrmPrincipal
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(31, 288)
+        Me.Label3.Location = New System.Drawing.Point(21, 295)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(322, 16)
+        Me.Label3.Size = New System.Drawing.Size(282, 16)
         Me.Label3.TabIndex = 36
-        Me.Label3.Text = "LISTA ALUMNOS CON MISMO TIPO DE ACTIVIDAD"
+        Me.Label3.Text = "ALUMNOS CON MISMO TIPO DE ACTIVIDAD"
         '
         'txtNombre
         '
@@ -361,12 +364,15 @@ Partial Class FrmPrincipal
         '
         'grpGestionAct
         '
+        Me.grpGestionAct.Controls.Add(Me.Label15)
+        Me.grpGestionAct.Controls.Add(Me.Label14)
+        Me.grpGestionAct.Controls.Add(Me.lstbAlumnAnadidos)
         Me.grpGestionAct.Controls.Add(Me.lstbAlumn)
         Me.grpGestionAct.Controls.Add(Me.btnAnadirODS)
         Me.grpGestionAct.Controls.Add(Me.btnAñadirTipoAc)
         Me.grpGestionAct.Controls.Add(Me.Label7)
-        Me.grpGestionAct.Controls.Add(Me.Button1)
-        Me.grpGestionAct.Controls.Add(Me.Button7)
+        Me.grpGestionAct.Controls.Add(Me.btnAnadirAlumnos)
+        Me.grpGestionAct.Controls.Add(Me.btnEliminarAlumnos)
         Me.grpGestionAct.Controls.Add(Me.TextBox8)
         Me.grpGestionAct.Controls.Add(Me.btnEliminarTipoAc)
         Me.grpGestionAct.Controls.Add(Me.btnEliminarODS)
@@ -425,27 +431,27 @@ Partial Class FrmPrincipal
         Me.Label7.TabIndex = 115
         Me.Label7.Text = "DESCRIPCIÓN"
         '
-        'Button1
+        'btnAnadirAlumnos
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(159, 426)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(113, 33)
-        Me.Button1.TabIndex = 114
-        Me.Button1.Text = "AÑADIR"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAnadirAlumnos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnadirAlumnos.Location = New System.Drawing.Point(94, 449)
+        Me.btnAnadirAlumnos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnAnadirAlumnos.Name = "btnAnadirAlumnos"
+        Me.btnAnadirAlumnos.Size = New System.Drawing.Size(113, 33)
+        Me.btnAnadirAlumnos.TabIndex = 114
+        Me.btnAnadirAlumnos.Text = "AÑADIR"
+        Me.btnAnadirAlumnos.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnEliminarAlumnos
         '
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(303, 426)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(113, 33)
-        Me.Button7.TabIndex = 113
-        Me.Button7.Text = "ELIMINAR"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnEliminarAlumnos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarAlumnos.Location = New System.Drawing.Point(379, 449)
+        Me.btnEliminarAlumnos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnEliminarAlumnos.Name = "btnEliminarAlumnos"
+        Me.btnEliminarAlumnos.Size = New System.Drawing.Size(113, 33)
+        Me.btnEliminarAlumnos.TabIndex = 113
+        Me.btnEliminarAlumnos.Text = "ELIMINAR"
+        Me.btnEliminarAlumnos.UseVisualStyleBackColor = True
         '
         'TextBox8
         '
@@ -756,11 +762,39 @@ Partial Class FrmPrincipal
         '
         Me.lstbAlumn.FormattingEnabled = True
         Me.lstbAlumn.ItemHeight = 16
-        Me.lstbAlumn.Location = New System.Drawing.Point(34, 317)
+        Me.lstbAlumn.Location = New System.Drawing.Point(34, 329)
         Me.lstbAlumn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstbAlumn.Name = "lstbAlumn"
-        Me.lstbAlumn.Size = New System.Drawing.Size(521, 84)
-        Me.lstbAlumn.TabIndex = 118
+        Me.lstbAlumn.Size = New System.Drawing.Size(238, 116)
+        Me.lstbAlumn.TabIndex = 119
+        '
+        'lstbAlumnAnadidos
+        '
+        Me.lstbAlumnAnadidos.FormattingEnabled = True
+        Me.lstbAlumnAnadidos.ItemHeight = 16
+        Me.lstbAlumnAnadidos.Location = New System.Drawing.Point(317, 329)
+        Me.lstbAlumnAnadidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lstbAlumnAnadidos.Name = "lstbAlumnAnadidos"
+        Me.lstbAlumnAnadidos.Size = New System.Drawing.Size(238, 116)
+        Me.lstbAlumnAnadidos.TabIndex = 120
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(282, 384)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(21, 16)
+        Me.Label14.TabIndex = 121
+        Me.Label14.Text = "=>"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(360, 295)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(146, 16)
+        Me.Label15.TabIndex = 122
+        Me.Label15.Text = "ALUMNOS AÑADIDOS"
         '
         'FrmPrincipal
         '
@@ -848,11 +882,14 @@ Partial Class FrmPrincipal
     Friend WithEvents Label12 As Label
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button7 As Button
+    Friend WithEvents btnAnadirAlumnos As Button
+    Friend WithEvents btnEliminarAlumnos As Button
     Friend WithEvents TextBox8 As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents btnAnadirODS As Button
     Friend WithEvents btnAñadirTipoAc As Button
+    Friend WithEvents lstbAlumnAnadidos As ListBox
     Friend WithEvents lstbAlumn As ListBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label15 As Label
 End Class

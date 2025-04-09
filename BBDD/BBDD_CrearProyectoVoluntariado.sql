@@ -88,6 +88,7 @@ CREATE TABLE PREFIERE_VOLUNTARIO_TIPOACTIVIDAD (
 CREATE TABLE ODS (
     NUMODS SMALLINT NOT NULL,
     NOMBRE NVARCHAR(50) NOT NULL,
+	DESCRIPCIÓN NVARCHAR(MAX),
     CONSTRAINT PK_ODS PRIMARY KEY (NUMODS)
 );
 
@@ -135,75 +136,83 @@ EXEC SP_BINDRULE DNI, 'PARTICIPA_VOLUNTARIO_ACTIVIDAD.DNI'
 EXEC SP_BINDRULE DIA_SEMANA, 'DISPONIBILIDAD.DIASEMANA'
 EXEC SP_BINDRULE TIPO_VOLUNTARIADO, 'TIPO_ACTIVIDAD.NOMBRE'
 
---INSERTS
-INSERT INTO TIPO_ACTIVIDAD VALUES('SOCIAL')
-INSERT INTO TIPO_ACTIVIDAD VALUES('AMBIENTAL')
-INSERT INTO TIPO_ACTIVIDAD VALUES('TÉCNICO')
-INSERT INTO TIPO_ACTIVIDAD VALUES('EDUCATIVO')--DA FALLO
+-- TIPOS DE ACTIVIDAD
+INSERT INTO TIPO_ACTIVIDAD VALUES('SOCIAL');
+INSERT INTO TIPO_ACTIVIDAD VALUES('AMBIENTAL');
+INSERT INTO TIPO_ACTIVIDAD VALUES('TECNICO');
+INSERT INTO TIPO_ACTIVIDAD VALUES('EDUCATIVO');
 
-INSERT INTO VOLUNTARIO VALUES('44649843N','MARKEL', 'ALVARADO', 'GARIN', 'markel.alvarado@gmail.com', '07-09-2006', 'Calle Mayor')
-INSERT INTO VOLUNTARIO VALUES('12345789A','JAVIER', 'RENZULLI', '', 'renzulli@gmail.com', '02-12-2006', 'Calle Al Hillad')
-INSERT INTO VOLUNTARIO VALUES('98765421Z','JAVIER', 'MARTIN', 'FERNANDEZ', 'jmartinf4@gmail.com', '08-12-2006', 'Calle Pequeña')
-INSERT INTO VOLUNTARIO VALUES('12378946D','IKER', 'VIGUERA', 'ESCUDERO', 'viguerilla@gmail.com', '11-08-2006', 'Calle Mayor')
---INSERTS ORGANIZACIONES
+-- VOLUNTARIOS
+INSERT INTO VOLUNTARIO VALUES('44649843N','MARKEL', 'ALVARADO', 'GARIN', 'markel.alvarado@gmail.com', '2006-09-07', 'Calle Mayor');
+INSERT INTO VOLUNTARIO VALUES('12345789A','JAVIER', 'RENZULLI', '', 'renzulli@gmail.com', '2006-12-02', 'Calle Al Hillad');
+INSERT INTO VOLUNTARIO VALUES('98765421Z','JAVIER', 'MARTIN', 'FERNANDEZ', 'jmartinf4@gmail.com', '2006-12-08', 'Calle Pequeña');
+INSERT INTO VOLUNTARIO VALUES('12378946D','IKER', 'VIGUERA', 'ESCUDERO', 'viguerilla@gmail.com', '2006-08-11', 'Calle Mayor');
+
+-- ORGANIZACIONES
 INSERT INTO ORGANIZACIONES VALUES ('B60000000', 'Ayuntamiento de Barcelona', 931234567, 'Barcelona');
 INSERT INTO ORGANIZACIONES VALUES ('G60000000', 'Cruz Roja', 919876543, 'Madrid');
 INSERT INTO ORGANIZACIONES VALUES ('F60000000', 'Banco de Alimentos', 952345678, 'Málaga');
-INSERT INTO ORGANIZACIONES VALUES ('A12345678', 'ONG Sonrisas', 60123456, 'Valencia');
+INSERT INTO ORGANIZACIONES VALUES ('A12345678', 'ONG Sonrisas', 601234567, 'Valencia');
 
---INSERTS ACTIVIDAD FALLO
-INSERT INTO ACTIVIDAD VALUES ('Limpieza de playa', 'DISPONIBLE', 'Limpieza de residuos en la playa de la Barceloneta', '2023-10-26', '2023-10-27', 20, 'B60000000', 'AMBIENTAL');
-INSERT INTO ACTIVIDAD VALUES ('Clases de español', 'COMPLETO', 'Clases de español para inmigrantes', '2023-11-01', '2023-11-30', 15, 'G60000000', 'EDUCATIVO');
-INSERT INTO ACTIVIDAD VALUES ('Recogida de alimentos', 'DISPONIBLE', 'Recogida de alimentos para familias necesitadas', '2023-11-15', '2023-11-16', 25, 'F60000000', 'SOCIAL');
-INSERT INTO ACTIVIDAD VALUES ('Taller de reciclaje', 'DISPONIBLE', 'Taller para aprender a reciclar en casa', '2023-11-22', '2023-11-22', 12, 'B60000000', 'AMBIENTAL');
+-- ACTIVIDADES
+INSERT INTO ACTIVIDAD (NOMBRE, ESTADO, DESCRIPCION, FECHAINICIO, FECHAFIN, CAPACIDAD, NIF_ORG, NOMBRE_TIPOACT)
+VALUES 
+('Limpieza de playa', 'DISPONIBLE', 'Limpieza de residuos en la playa de la Barceloneta', '2023-10-26', '2023-10-27', 20, 'B60000000', 'AMBIENTAL'),
+('Clases de español', 'COMPLETO', 'Clases de español para inmigrantes', '2023-11-01', '2023-11-30', 15, 'G60000000', 'EDUCATIVO'),
+('Recogida de alimentos', 'DISPONIBLE', 'Recogida de alimentos para familias necesitadas', '2023-11-15', '2023-11-16', 25, 'F60000000', 'SOCIAL'),
+('Taller de reciclaje', 'DISPONIBLE', 'Taller para aprender a reciclar en casa', '2023-11-22', '2023-11-22', 12, 'B60000000', 'AMBIENTAL');
 
+-- TELÉFONOS
 INSERT INTO TELEFONO VALUES ('44649843N', '600123456');
 INSERT INTO TELEFONO VALUES ('12345789A', '601987654');
 INSERT INTO TELEFONO VALUES ('98765421Z', '602567890');
 INSERT INTO TELEFONO VALUES ('12378946D', '603345678');
 
+-- DISPONIBILIDAD
 INSERT INTO DISPONIBILIDAD VALUES ('44649843N', 'Lunes');
 INSERT INTO DISPONIBILIDAD VALUES ('12345789A', 'Martes');
 INSERT INTO DISPONIBILIDAD VALUES ('98765421Z', 'Miércoles');
 INSERT INTO DISPONIBILIDAD VALUES ('12378946D', 'Jueves');
 
---FALLO
+-- PARTICIPA EN ACTIVIDADES
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('44649843N', 1);
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('12345789A', 2);
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('44649843N', 3);
 INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD VALUES ('12378946D', 4);
---FALLO
-INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('44649843N', 'Medio Ambiente');
-INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('12345789A', 'Educación');
-INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('44649843N', 'Asistencia Social');
-INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('12378946D', 'Medio Ambiente');
 
-INSERT INTO ODS (NUMODS, NOMBRE) VALUES 
-    (1, 'Fin de la pobreza'),
-    (2, 'Hambre cero'),
-    (3, 'Salud y bienestar'),
-    (4, 'Educación de calidad'),
-    (5, 'Igualdad de género'),
-    (6, 'Agua limpia y saneamiento'),
-    (7, 'Energía asequible y no contaminante'),
-    (8, 'Trabajo decente y crecimiento económico'),
-    (9, 'Industria, innovación e infraestructura'),
-    (10, 'Reducción de las desigualdades'),
-    (11, 'Ciudades y comunidades sostenibles'),
-    (12, 'Producción y consumo responsables'),
-    (13, 'Acción por el clima'),
-    (14, 'Vida submarina'),
-    (15, 'Vida de ecosistemas terrestres'),
-    (16, 'Paz, justicia e instituciones sólidas'),
-    (17, 'Alianzas para lograr los objetivos');
+-- PREFERENCIAS DE TIPO DE ACTIVIDAD (usando valores válidos del catálogo)
+INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('44649843N', 'AMBIENTAL');
+INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('12345789A', 'EDUCATIVO');
+INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('44649843N', 'SOCIAL');
+INSERT INTO PREFIERE_VOLUNTARIO_TIPOACTIVIDAD VALUES ('12378946D', 'AMBIENTAL');
 
---FALLO
+INSERT INTO ODS (NUMODS, NOMBRE, DESCRIPCION) VALUES 
+(1, 'Fin de la pobreza', 'Erradicar la pobreza en todas sus formas y en todo el mundo.'),
+(2, 'Hambre cero', 'Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición.'),
+(3, 'Salud y bienestar', 'Garantizar una vida sana y promover el bienestar para todos.'),
+(4, 'Educación de calidad', 'Garantizar una educación inclusiva, equitativa y de calidad.'),
+(5, 'Igualdad de género', 'Lograr la igualdad de género y empoderar a todas las mujeres y niñas.'),
+(6, 'Agua limpia y saneamiento', 'Garantizar la disponibilidad y la gestión sostenible del agua y el saneamiento.'),
+(7, 'Energía asequible y no contaminante', 'Asegurar el acceso a una energía asequible, segura, sostenible y moderna.'),
+(8, 'Trabajo decente y crecimiento económico', 'Promover el crecimiento económico sostenido, el empleo pleno y productivo.'),
+(9, 'Industria, innovación e infraestructura', 'Construir infraestructuras resilientes, promover la industrialización sostenible.'),
+(10, 'Reducción de las desigualdades', 'Reducir la desigualdad en y entre los países.'),
+(11, 'Ciudades y comunidades sostenibles', 'Lograr que las ciudades sean inclusivas, seguras y sostenibles.'),
+(12, 'Producción y consumo responsables', 'Garantizar modalidades de consumo y producción sostenibles.'),
+(13, 'Acción por el clima', 'Adoptar medidas urgentes para combatir el cambio climático y sus efectos.'),
+(14, 'Vida submarina', 'Conservar y utilizar sosteniblemente los océanos y sus recursos.'),
+(15, 'Vida de ecosistemas terrestres', 'Gestionar sosteniblemente los bosques y detener la pérdida de biodiversidad.'),
+(16, 'Paz, justicia e instituciones sólidas', 'Promover sociedades pacíficas e inclusivas y acceso a la justicia para todos.'),
+(17, 'Alianzas para lograr los objetivos', 'Revitalizar la Alianza Mundial para el Desarrollo Sostenible.');
+
+
+-- RELACIÓN ENTRE ACTIVIDADES Y ODS (suponiendo IDs de actividad autoincrementales desde 1)
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (1, 1);
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (2, 2);
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (3, 3);
 INSERT INTO CONTIENE_VOLUNTARIADO_ODS VALUES (4, 4);
 
---FALLO
+-- NOTICIAS
 INSERT INTO NOTICIAS VALUES ('Éxito en la limpieza de la playa', 'Evento', '2023-10-28', 1);
 INSERT INTO NOTICIAS VALUES ('Nuevos voluntarios para las clases de español', 'Noticia', '2023-11-02', 2);
 INSERT INTO NOTICIAS VALUES ('Gran recogida de alimentos', 'Evento', '2023-11-17', 3);
@@ -233,4 +242,4 @@ BEGIN
     VALUES (@DNI, @CODACTIVIDAD);
 END;
 GO
-INSCRIBIRVOLUNACTIVIDAD ("12345678A", 12);
+EXEC INSCRIBIRVOLUNACTIVIDAD '12345678A', 12;

@@ -46,10 +46,6 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub btnAnadirTiposACt_Click(sender As Object, e As EventArgs) Handles btnAñadirTipoAc.Click
-        'Dim volSeleccionado As Voluntariado = TryCast(cboTipoActividad.SelectedItem, Voluntariado)
-        'If volSeleccionado Is Nothing Then Exit Sub
-        'If lstTipoActividad.Items.Contains(volSeleccionado.Tipo) Then Exit Sub
-        'lstTipoActividad.Items.Add(volSeleccionado.Tipo)
 
         Dim tipoSeleccionado As TipoVoluntariado = TryCast(cboTipoActividad.SelectedItem, TipoVoluntariado)
         If tipoSeleccionado IsNot Nothing Then
@@ -87,6 +83,10 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoActividad.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
 
     End Sub
 End Class
