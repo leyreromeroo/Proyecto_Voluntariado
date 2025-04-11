@@ -38,6 +38,11 @@
         Voluntarios.Add(voluntario)
     End Sub
 
+    Public Sub New(codigo As Integer, nombre As String)
+        Me.Codigo = codigo
+        Me.Nombre = nombre
+    End Sub
+
     Public Overrides Function Equals(obj As Object) As Boolean
         Return Equals(TryCast(obj, Voluntariado))
     End Function

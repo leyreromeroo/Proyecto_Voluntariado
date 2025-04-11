@@ -6,7 +6,7 @@ Public Class GestionVoluntariados
     Private ReadOnly _voluntariados As List(Of Voluntariado)
     'Private _servidor As String = Environment.MachineName
     'Private ReadOnly _servidorAlternativo As String = "."
-    Private _cadenaConexion
+    Public cadenaConexion
 
     Public ReadOnly Property Voluntariados As List(Of Voluntariado)
         Get
@@ -24,7 +24,7 @@ Public Class GestionVoluntariados
             servidor = "."
         End If
 
-        _cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
+        cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
     End Sub
 
     Public Function CrearActividad(tipo As List(Of TipoVoluntariado), capacidad As Integer, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario), ByRef msgError As String) As String
@@ -70,7 +70,7 @@ Public Class GestionVoluntariados
 
         If listaVoluntarios Is Nothing OrElse listaVoluntarios.Count = 0 Then Return "Debe asignar al menos un voluntario"
 
-        Dim oConexion As New SqlConnection(_cadenaConexion)
+        Dim oConexion As New SqlConnection(cadenaConexion)
         ' Dim transaction As SqlTransaction = Nothing
         msgError = ""
         Try
@@ -158,10 +158,96 @@ Public Class GestionVoluntariados
         Return msgError = $"Voluntariado {nombre} creado correctamente)"
     End Function
 
+    Public Function EliminarVoluntariado(codActividad As Integer) As String
+        ' Validación inicial
+        If codActividad <= 0 Then Return "El código de actividad no es válido"
+
+        Dim oConexion As New SqlConnection(cadenaConexion)
+        Dim msgError As String = ""
+
+        Try
+            oConexion.Open()
+
+            ' 1. Verificar que la actividad existe y es un voluntariado
+            Dim sqlVerificarActividad As String = "SELECT COUNT(*) FROM ACTIVIDAD
+                                             WHERE ACTIVIDAD.CODACTIVIDAD = @CodActividad"
+            Dim cmdVerificarActividad As New SqlCommand(sqlVerificarActividad, oConexion)
+            cmdVerificarActividad.Parameters.AddWithValue("@CodActividad", codActividad)
+            Dim countActividad As Integer = cmdVerificarActividad.ExecuteScalar()
+
+            If countActividad > 0 Then
+                ' 2. Eliminar relaciones con ODS
+                Dim sqlEliminarODS As String = "DELETE FROM CONTIENE_VOLUNTARIADO_ODS 
+                                           WHERE CODACTIVIDAD = @CodActividad"
+                Dim cmdEliminarODS As New SqlCommand(sqlEliminarODS, oConexion)
+                cmdEliminarODS.Parameters.AddWithValue("@CodActividad", codActividad)
+                Dim filasEliminadasODS As Integer = cmdEliminarODS.ExecuteNonQuery()
+                If filasEliminadasODS = 0 Then msgError &= ControlChars.NewLine & "No se pudo eliminar el ODS"
+            Else
+                msgError &= ControlChars.NewLine & "El voluntariado no existe o el código no corresponde a un voluntariado"
+            End If
+
+            ' 3. Verificar que no tiene participantes inscritos
+            Dim sqlVerificarParticipantes As String = "SELECT COUNT(*) FROM PARTICIPA_VOLUNTARIO_ACTIVIDAD 
+                                                 WHERE CODACTIVIDAD = @CodActividad"
+            Dim cmdVerificarParticipantes As New SqlCommand(sqlVerificarParticipantes, oConexion)
+            cmdVerificarParticipantes.Parameters.AddWithValue("@CodActividad", codActividad)
+            Dim numParticipantes As Integer = cmdVerificarParticipantes.ExecuteScalar()
+
+            If numParticipantes > 0 Then
+                '5. Eliminar relaciones con voluntarios
+                Dim sqlEliminarParticipantes As String = "DELETE FROM PARTICIPA_VOLUNTARIO_ACTIVIDAD 
+                                                 WHERE CODACTIVIDAD = @CodActividad"
+                Dim cmdEliminarParticipantes As New SqlCommand(sqlEliminarParticipantes, oConexion)
+                cmdEliminarParticipantes.Parameters.AddWithValue("@CodActividad", codActividad)
+                Dim filasEliminadasParticipantes As Integer = cmdEliminarParticipantes.ExecuteNonQuery()
+                If filasEliminadasParticipantes = 0 Then msgError &= ControlChars.NewLine & "No se pudo eliminar el participante"
+            Else
+                msgError &= ControlChars.NewLine & "No se puede eliminar el voluntariado porque no tiene voluntarios inscritos"
+            End If
+
+            ' 3. Verificar que no tiene noticias asociadas
+            Dim sqlVerificarNoticias As String = "SELECT COUNT(*) FROM NOTICIAS 
+                                                 WHERE CODACTIVIDAD = @CodActividad"
+            Dim cmdVerificarNoticias As New SqlCommand(sqlVerificarNoticias, oConexion)
+            cmdVerificarNoticias.Parameters.AddWithValue("@CodActividad", codActividad)
+            Dim numNoticias As Integer = cmdVerificarNoticias.ExecuteScalar()
+
+            If numNoticias > 0 Then
+                '5. Eliminar relaciones con noticias
+                Dim sqlEliminarNoticias As String = "DELETE FROM NOTICIAS 
+                                                 WHERE CODACTIVIDAD = @CodActividad"
+                Dim cmdEliminarNoticias As New SqlCommand(sqlEliminarNoticias, oConexion)
+                cmdEliminarNoticias.Parameters.AddWithValue("@CodActividad", codActividad)
+                Dim filasEliminadasNoticias As Integer = cmdEliminarNoticias.ExecuteNonQuery()
+                If filasEliminadasNoticias = 0 Then msgError &= ControlChars.NewLine & "No se pudo eliminar la noticia"
+            Else
+                msgError &= ControlChars.NewLine & "No se puede eliminar el voluntariado porque no tiene noticias asociadas"
+            End If
+
+            ' 6. Eliminar la actividad
+            Dim sqlEliminarActividad As String = "DELETE FROM ACTIVIDAD 
+                                                 WHERE CODACTIVIDAD = @CodActividad"
+            Dim cmdEliminarActividad As New SqlCommand(sqlEliminarActividad, oConexion)
+            cmdEliminarActividad.Parameters.AddWithValue("@CodActividad", codActividad)
+            Dim filasEliminadas As Integer = cmdEliminarActividad.ExecuteNonQuery()
+
+            If filasEliminadas = 0 Then Return "No se pudo eliminar el voluntariado"
+
+            Return $"Voluntariado {codActividad} eliminado correctamente"
+
+        Catch ex As Exception
+            Return "Error general al eliminar el voluntariado: " & ex.Message
+        Finally
+
+            oConexion.Close()
+
+        End Try
+    End Function
     Public Function BuscarODS(ByRef msgError As String) As ReadOnlyCollection(Of ODS)
         Dim listaOds As New List(Of ODS)
         msgError = ""
-        Dim oConexion As New SqlConnection(_cadenaConexion)
+        Dim oConexion As New SqlConnection(cadenaConexion)
         Try
             oConexion.Open()
             Dim sql As String = "Select NUMODS, Nombre From ODS"
@@ -180,7 +266,7 @@ Public Class GestionVoluntariados
     End Function
     Public Function BuscarAlumnosDelMismoTipo(nombreTìpo As String) As List(Of Voluntario)
         Dim listaVoluntarios As New List(Of Voluntario)
-        Dim conexion As New SqlConnection(_cadenaConexion)
+        Dim conexion As New SqlConnection(cadenaConexion)
         conexion.Open()
         Dim consulta As String = $"SELECT VOLUNTARIO.DNI, VOLUNTARIO.NOMBRE, VOLUNTARIO.APELLIDO1 FROM VOLUNTARIO INNER JOIN PREFIERE_VOLUNTARIO_TIPOACTIVIDAD ON VOLUNTARIO.DNI = PREFIERE_VOLUNTARIO_TIPOACTIVIDAD.DNI WHERE PREFIERE_VOLUNTARIO_TIPOACTIVIDAD.NOMBRE_TIPOACT ={nombreTìpo} ;"
         Dim cmdBuscarAlumnosDelMismoTipo As New SqlCommand(consulta, conexion)
@@ -194,7 +280,7 @@ Public Class GestionVoluntariados
     End Function
 
     Public Function ListaTiposActivi() As List(Of TipoVoluntariado)
-        Dim conexion As New SqlConnection(_cadenaConexion)
+        Dim conexion As New SqlConnection(cadenaConexion)
         conexion.Open()
 
         Dim consultaSQL As String = $"SELECT * FROM TIPO_ACTIVIDAD"
@@ -210,7 +296,7 @@ Public Class GestionVoluntariados
 
     Public Function MostrarAlumnos() As List(Of Voluntario)
         Dim listaVoluntarios As New List(Of Voluntario)
-        Dim conexion As New SqlConnection(_cadenaConexion)
+        Dim conexion As New SqlConnection(cadenaConexion)
         conexion.Open()
         Dim consulta As String = $"SELECT VOLUNTARIO.DNI,VOLUNTARIO.NOMBRE,VOLUNTARIO.APELLIDO1 FROM VOLUNTARIO"
         Dim cmdMostrarAlumnos As New SqlCommand(consulta, conexion)
@@ -222,29 +308,4 @@ Public Class GestionVoluntariados
         conexion.Close()
         Return listaVoluntarios
     End Function
-    Public Sub AgregarVoluntariado(voluntariado As Voluntariado)
-        Voluntariados.Add(voluntariado)
-    End Sub
-
-    Public Function ObtenerVoluntariados() As List(Of Voluntariado)
-        Return Voluntariados
-    End Function
-
-    Public Function BuscarVoluntariadoPorCodigo(codigo As Integer) As Voluntariado
-        Return Voluntariados.FirstOrDefault(Function(v) v.Codigo = codigo)
-    End Function
-
-    Public Sub EliminarVoluntariado(codigo As Integer)
-        Dim voluntariado As Voluntariado = BuscarVoluntariadoPorCodigo(codigo)
-        If voluntariado IsNot Nothing Then
-            Voluntariados.Remove(voluntariado)
-        End If
-    End Sub
-
-    Public Sub ActualizarVoluntariado(codigo As Integer, nuevoVoluntariado As Voluntariado)
-        Dim index As Integer = Voluntariados.FindIndex(Function(v) v.Codigo = codigo)
-        If index <> -1 Then
-            Voluntariados(index) = nuevoVoluntariado
-        End If
-    End Sub
 End Class

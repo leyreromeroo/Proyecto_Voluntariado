@@ -50,6 +50,8 @@ Partial Class FrmPrincipal
         Me.grpConsultarAct = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.grpGestionAct = New System.Windows.Forms.GroupBox()
+        Me.cmbOrganizaciones = New System.Windows.Forms.ComboBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.btnCrearActividad = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -81,6 +83,7 @@ Partial Class FrmPrincipal
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmbNombreActividadEliminar = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -90,9 +93,6 @@ Partial Class FrmPrincipal
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.cmbOrganizaciones = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -397,6 +397,24 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.TabIndex = 104
         Me.grpGestionAct.TabStop = False
         Me.grpGestionAct.Text = "GESTION DE ACTIVIDADES"
+        '
+        'cmbOrganizaciones
+        '
+        Me.cmbOrganizaciones.FormattingEnabled = True
+        Me.cmbOrganizaciones.Location = New System.Drawing.Point(453, 51)
+        Me.cmbOrganizaciones.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbOrganizaciones.Name = "cmbOrganizaciones"
+        Me.cmbOrganizaciones.Size = New System.Drawing.Size(176, 24)
+        Me.cmbOrganizaciones.TabIndex = 125
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(297, 57)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(140, 16)
+        Me.Label16.TabIndex = 124
+        Me.Label16.Text = "NOMBRE ACTIVIDAD"
         '
         'btnCrearActividad
         '
@@ -711,7 +729,7 @@ Partial Class FrmPrincipal
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.cmbNombreActividadEliminar)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.Button6)
@@ -724,6 +742,15 @@ Partial Class FrmPrincipal
         Me.GroupBox2.TabIndex = 108
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ELIMINAR ACTIVIDADES"
+        '
+        'cmbNombreActividadEliminar
+        '
+        Me.cmbNombreActividadEliminar.FormattingEnabled = True
+        Me.cmbNombreActividadEliminar.Location = New System.Drawing.Point(13, 59)
+        Me.cmbNombreActividadEliminar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbNombreActividadEliminar.Name = "cmbNombreActividadEliminar"
+        Me.cmbNombreActividadEliminar.Size = New System.Drawing.Size(237, 24)
+        Me.cmbNombreActividadEliminar.TabIndex = 126
         '
         'Label13
         '
@@ -816,33 +843,6 @@ Partial Class FrmPrincipal
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(0, 16)
         Me.Label12.TabIndex = 73
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(297, 57)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(140, 16)
-        Me.Label16.TabIndex = 124
-        Me.Label16.Text = "NOMBRE ACTIVIDAD"
-        '
-        'cmbOrganizaciones
-        '
-        Me.cmbOrganizaciones.FormattingEnabled = True
-        Me.cmbOrganizaciones.Location = New System.Drawing.Point(453, 51)
-        Me.cmbOrganizaciones.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.cmbOrganizaciones.Name = "cmbOrganizaciones"
-        Me.cmbOrganizaciones.Size = New System.Drawing.Size(176, 24)
-        Me.cmbOrganizaciones.TabIndex = 125
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(13, 59)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(237, 24)
-        Me.ComboBox1.TabIndex = 126
         '
         'FrmPrincipal
         '
@@ -943,5 +943,5 @@ Partial Class FrmPrincipal
     Friend WithEvents txtbEstado As TextBox
     Friend WithEvents cmbOrganizaciones As ComboBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbNombreActividadEliminar As ComboBox
 End Class

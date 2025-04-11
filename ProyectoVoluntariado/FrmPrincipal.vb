@@ -1,5 +1,6 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Collections.Specialized.BitVector32
+Imports System.Data.SqlClient
 Imports Clases
 Imports Gestion
 
@@ -11,6 +12,7 @@ Public Class FrmPrincipal
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ActualizarCboOds()
+        CargarVoluntariados()
         'cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
 
         Dim lista As List(Of Voluntario) = gestion.MostrarAlumnos()
@@ -23,8 +25,29 @@ Public Class FrmPrincipal
         cboTipoActividad.DataSource = tiposActividades
         cboTipoActividad.DisplayMember = "Nombre"  ' Especificamos que se muestre la propiedad "Nombre"
 
+
     End Sub
 
+    Private Sub CargarVoluntariados()
+        Dim conexion As New SqlConnection(gestion.cadenaConexion)
+        Dim comando As New SqlCommand("SELECT CODACTIVIDAD, NOMBRE FROM ACTIVIDAD", conexion)
+        Dim adaptador As New SqlDataAdapter(comando)
+        Dim dt As New DataTable()
+
+        Try
+            conexion.Open()
+            adaptador.Fill(dt)
+
+            cmbNombreActividadEliminar.DisplayMember = "NOMBRE"       ' Lo que se muestra
+            cmbNombreActividadEliminar.ValueMember = "CODACTIVIDAD"   ' Lo que se usa internamente
+            cmbNombreActividadEliminar.DataSource = dt
+
+        Catch ex As Exception
+            MessageBox.Show("Error al cargar los voluntariados: " & ex.Message)
+        Finally
+            conexion.Close()
+        End Try
+    End Sub
     Private Sub ActualizarCboOds()
         Dim msgError As String = ""
         Dim listaOds As ReadOnlyCollection(Of ODS)
@@ -37,7 +60,7 @@ Public Class FrmPrincipal
         cboODS.Items.AddRange(listaOds.ToArray)
     End Sub
 
-    Private Sub btnAnadirOds_Click(sender As Object, e As EventArgs) Handles btnAnadirOds.Click
+    Private Sub btnAnadirOds_Click(sender As Object, e As EventArgs) Handles btnAnadirODS.Click
         Dim odsSeleccionada As ODS = TryCast(cboODS.SelectedItem, ODS)
         If odsSeleccionada Is Nothing Then Exit Sub
         lstDatosAnyadidos.Items.Add(odsSeleccionada.Nombre)
@@ -119,8 +142,27 @@ Public Class FrmPrincipal
         For i As Integer = 0 To lstTipoActividad.Items.Count - 1
             tipoActividad.Add(lstTipoActividad.Items(i))
         Next
-        gestor.CrearActividad(tipoActividad, cantidadAlumnos, )
+        'gestor.CrearActividad(tipoActividad, cantidadAlumnos, )
     End Sub
 
+    Private Sub ComboBox1_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles cmbNombreActividadEliminar.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim actividadSeleccionada = CType(cmbNombreActividadEliminar.SelectedItem, DataRowView)
+        If actividadSeleccionada IsNot Nothing Then
+            Dim nombreActividad As String = actividadSeleccionada("Nombre").ToString()
+            Dim resultado As DialogResult = MessageBox.Show("¿Estás seguro de que deseas eliminar la actividad " & nombreActividad & "?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If resultado = DialogResult.Yes Then
+
+                MessageBox.Show($"" & gestion.EliminarVoluntariado(actividadSeleccionada("CODACTIVIDAD")))
+                CargarVoluntariados()
+            End If
+        End If
+    End Sub
+
+    Private Sub cboODS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboODS.SelectedIndexChanged
+
+    End Sub
 End Class
