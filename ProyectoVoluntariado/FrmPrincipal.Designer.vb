@@ -71,6 +71,9 @@ Partial Class FrmPrincipal
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.grpEdicionAct = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtbEstado = New System.Windows.Forms.TextBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -87,10 +90,9 @@ Partial Class FrmPrincipal
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.txtbEstado = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.cboOrg = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -131,7 +133,7 @@ Partial Class FrmPrincipal
         Me.txtNombre.Location = New System.Drawing.Point(177, 23)
         Me.txtNombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(292, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(452, 22)
         Me.txtNombre.TabIndex = 32
         '
         'LBL_NOMBRE_ACTIVIDAD
@@ -265,7 +267,7 @@ Partial Class FrmPrincipal
         Me.txtCapacidad.Location = New System.Drawing.Point(177, 51)
         Me.txtCapacidad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtCapacidad.Name = "txtCapacidad"
-        Me.txtCapacidad.Size = New System.Drawing.Size(292, 22)
+        Me.txtCapacidad.Size = New System.Drawing.Size(95, 22)
         Me.txtCapacidad.TabIndex = 91
         '
         'txtFechaIni
@@ -278,7 +280,7 @@ Partial Class FrmPrincipal
         '
         'txtFechaFin
         '
-        Me.txtFechaFin.Location = New System.Drawing.Point(379, 86)
+        Me.txtFechaFin.Location = New System.Drawing.Point(453, 83)
         Me.txtFechaFin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtFechaFin.Name = "txtFechaFin"
         Me.txtFechaFin.Size = New System.Drawing.Size(90, 22)
@@ -337,11 +339,11 @@ Partial Class FrmPrincipal
         Me.grpConsultarAct.Controls.Add(Me.Label31)
         Me.grpConsultarAct.Controls.Add(Me.lblFechaFin)
         Me.grpConsultarAct.Controls.Add(Me.label24)
-        Me.grpConsultarAct.Location = New System.Drawing.Point(662, 20)
+        Me.grpConsultarAct.Location = New System.Drawing.Point(713, 20)
         Me.grpConsultarAct.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpConsultarAct.Name = "grpConsultarAct"
         Me.grpConsultarAct.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpConsultarAct.Size = New System.Drawing.Size(603, 318)
+        Me.grpConsultarAct.Size = New System.Drawing.Size(552, 318)
         Me.grpConsultarAct.TabIndex = 103
         Me.grpConsultarAct.TabStop = False
         Me.grpConsultarAct.Text = "CONSULTAR ACTIVIDAD"
@@ -357,6 +359,8 @@ Partial Class FrmPrincipal
         '
         'grpGestionAct
         '
+        Me.grpGestionAct.Controls.Add(Me.cboOrg)
+        Me.grpGestionAct.Controls.Add(Me.Label16)
         Me.grpGestionAct.Controls.Add(Me.btnCrearActividad)
         Me.grpGestionAct.Controls.Add(Me.Label15)
         Me.grpGestionAct.Controls.Add(Me.Label14)
@@ -389,7 +393,7 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpGestionAct.Name = "grpGestionAct"
         Me.grpGestionAct.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpGestionAct.Size = New System.Drawing.Size(604, 677)
+        Me.grpGestionAct.Size = New System.Drawing.Size(653, 677)
         Me.grpGestionAct.TabIndex = 104
         Me.grpGestionAct.TabStop = False
         Me.grpGestionAct.Text = "GESTION DE ACTIVIDADES"
@@ -417,9 +421,10 @@ Partial Class FrmPrincipal
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(282, 384)
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(307, 371)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(21, 16)
+        Me.Label14.Size = New System.Drawing.Size(46, 32)
         Me.Label14.TabIndex = 121
         Me.Label14.Text = "=>"
         '
@@ -427,10 +432,10 @@ Partial Class FrmPrincipal
         '
         Me.lstbAlumnAnadidos.FormattingEnabled = True
         Me.lstbAlumnAnadidos.ItemHeight = 16
-        Me.lstbAlumnAnadidos.Location = New System.Drawing.Point(317, 329)
+        Me.lstbAlumnAnadidos.Location = New System.Drawing.Point(363, 329)
         Me.lstbAlumnAnadidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstbAlumnAnadidos.Name = "lstbAlumnAnadidos"
-        Me.lstbAlumnAnadidos.Size = New System.Drawing.Size(238, 116)
+        Me.lstbAlumnAnadidos.Size = New System.Drawing.Size(266, 116)
         Me.lstbAlumnAnadidos.TabIndex = 120
         '
         'lstbAlumn
@@ -440,7 +445,7 @@ Partial Class FrmPrincipal
         Me.lstbAlumn.Location = New System.Drawing.Point(34, 329)
         Me.lstbAlumn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstbAlumn.Name = "lstbAlumn"
-        Me.lstbAlumn.Size = New System.Drawing.Size(238, 116)
+        Me.lstbAlumn.Size = New System.Drawing.Size(269, 116)
         Me.lstbAlumn.TabIndex = 119
         '
         'btnAnadirODS
@@ -457,7 +462,7 @@ Partial Class FrmPrincipal
         'btnAñadirTipoAc
         '
         Me.btnAñadirTipoAc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAñadirTipoAc.Location = New System.Drawing.Point(379, 246)
+        Me.btnAñadirTipoAc.Location = New System.Drawing.Point(426, 244)
         Me.btnAñadirTipoAc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAñadirTipoAc.Name = "btnAñadirTipoAc"
         Me.btnAñadirTipoAc.Size = New System.Drawing.Size(80, 31)
@@ -477,7 +482,7 @@ Partial Class FrmPrincipal
         'btnAnadirAlumnos
         '
         Me.btnAnadirAlumnos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAnadirAlumnos.Location = New System.Drawing.Point(94, 449)
+        Me.btnAnadirAlumnos.Location = New System.Drawing.Point(105, 449)
         Me.btnAnadirAlumnos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAnadirAlumnos.Name = "btnAnadirAlumnos"
         Me.btnAnadirAlumnos.Size = New System.Drawing.Size(113, 33)
@@ -488,7 +493,7 @@ Partial Class FrmPrincipal
         'btnEliminarAlumnos
         '
         Me.btnEliminarAlumnos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarAlumnos.Location = New System.Drawing.Point(379, 449)
+        Me.btnEliminarAlumnos.Location = New System.Drawing.Point(430, 449)
         Me.btnEliminarAlumnos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEliminarAlumnos.Name = "btnEliminarAlumnos"
         Me.btnEliminarAlumnos.Size = New System.Drawing.Size(113, 33)
@@ -502,13 +507,13 @@ Partial Class FrmPrincipal
         Me.TextBox8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TextBox8.Multiline = True
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(534, 92)
+        Me.TextBox8.Size = New System.Drawing.Size(595, 92)
         Me.TextBox8.TabIndex = 112
         '
         'btnEliminarTipoAc
         '
         Me.btnEliminarTipoAc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarTipoAc.Location = New System.Drawing.Point(470, 246)
+        Me.btnEliminarTipoAc.Location = New System.Drawing.Point(512, 245)
         Me.btnEliminarTipoAc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEliminarTipoAc.Name = "btnEliminarTipoAc"
         Me.btnEliminarTipoAc.Size = New System.Drawing.Size(85, 31)
@@ -543,7 +548,7 @@ Partial Class FrmPrincipal
         Me.lstTipoActividad.Location = New System.Drawing.Point(379, 172)
         Me.lstTipoActividad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstTipoActividad.Name = "lstTipoActividad"
-        Me.lstTipoActividad.Size = New System.Drawing.Size(176, 68)
+        Me.lstTipoActividad.Size = New System.Drawing.Size(250, 68)
         Me.lstTipoActividad.TabIndex = 105
         '
         'cboTipoActividad
@@ -552,7 +557,7 @@ Partial Class FrmPrincipal
         Me.cboTipoActividad.Location = New System.Drawing.Point(379, 139)
         Me.cboTipoActividad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cboTipoActividad.Name = "cboTipoActividad"
-        Me.cboTipoActividad.Size = New System.Drawing.Size(176, 24)
+        Me.cboTipoActividad.Size = New System.Drawing.Size(250, 24)
         Me.cboTipoActividad.TabIndex = 104
         '
         'lstDatosAnyadidos
@@ -562,7 +567,7 @@ Partial Class FrmPrincipal
         Me.lstDatosAnyadidos.Location = New System.Drawing.Point(24, 170)
         Me.lstDatosAnyadidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lstDatosAnyadidos.Name = "lstDatosAnyadidos"
-        Me.lstDatosAnyadidos.Size = New System.Drawing.Size(329, 68)
+        Me.lstDatosAnyadidos.Size = New System.Drawing.Size(317, 68)
         Me.lstDatosAnyadidos.TabIndex = 101
         '
         'cboODS
@@ -571,7 +576,7 @@ Partial Class FrmPrincipal
         Me.cboODS.Location = New System.Drawing.Point(24, 139)
         Me.cboODS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cboODS.Name = "cboODS"
-        Me.cboODS.Size = New System.Drawing.Size(329, 24)
+        Me.cboODS.Size = New System.Drawing.Size(317, 24)
         Me.cboODS.TabIndex = 100
         '
         'Label2
@@ -602,14 +607,43 @@ Partial Class FrmPrincipal
         Me.grpEdicionAct.Controls.Add(Me.GroupBox1)
         Me.grpEdicionAct.Controls.Add(Me.btnGuardar)
         Me.grpEdicionAct.Controls.Add(Me.Label6)
-        Me.grpEdicionAct.Location = New System.Drawing.Point(662, 381)
+        Me.grpEdicionAct.Location = New System.Drawing.Point(713, 381)
         Me.grpEdicionAct.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpEdicionAct.Name = "grpEdicionAct"
         Me.grpEdicionAct.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.grpEdicionAct.Size = New System.Drawing.Size(308, 225)
+        Me.grpEdicionAct.Size = New System.Drawing.Size(271, 225)
         Me.grpEdicionAct.TabIndex = 106
         Me.grpEdicionAct.TabStop = False
         Me.grpEdicionAct.Text = "EDICION DE ACTIVIDADES"
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(97, 89)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(104, 25)
+        Me.Button1.TabIndex = 126
+        Me.Button1.Text = "CAMBIAR ESTADO"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'txtbEstado
+        '
+        Me.txtbEstado.Location = New System.Drawing.Point(9, 89)
+        Me.txtbEstado.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtbEstado.Name = "txtbEstado"
+        Me.txtbEstado.ReadOnly = True
+        Me.txtbEstado.Size = New System.Drawing.Size(83, 22)
+        Me.txtbEstado.TabIndex = 124
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(9, 59)
+        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(237, 24)
+        Me.ComboBox2.TabIndex = 125
         '
         'GroupBox1
         '
@@ -677,16 +711,16 @@ Partial Class FrmPrincipal
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.Button6)
         Me.GroupBox2.Controls.Add(Me.Label12)
-        Me.GroupBox2.Controls.Add(Me.TextBox7)
-        Me.GroupBox2.Location = New System.Drawing.Point(976, 381)
+        Me.GroupBox2.Location = New System.Drawing.Point(1002, 381)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(291, 225)
+        Me.GroupBox2.Size = New System.Drawing.Size(263, 225)
         Me.GroupBox2.TabIndex = 108
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ELIMINAR ACTIVIDADES"
@@ -783,43 +817,32 @@ Partial Class FrmPrincipal
         Me.Label12.Size = New System.Drawing.Size(0, 16)
         Me.Label12.TabIndex = 73
         '
-        'TextBox7
+        'Label16
         '
-        Me.TextBox7.Location = New System.Drawing.Point(15, 61)
-        Me.TextBox7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(232, 22)
-        Me.TextBox7.TabIndex = 75
-        Me.TextBox7.Text = "ESCRIBIR NOMBRE ACTIVIDAD"
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(297, 57)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(140, 16)
+        Me.Label16.TabIndex = 124
+        Me.Label16.Text = "NOMBRE ACTIVIDAD"
         '
-        'ComboBox2
+        'cboOrg
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(9, 59)
-        Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(280, 24)
-        Me.ComboBox2.TabIndex = 125
+        Me.cboOrg.FormattingEnabled = True
+        Me.cboOrg.Location = New System.Drawing.Point(453, 51)
+        Me.cboOrg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cboOrg.Name = "cboOrg"
+        Me.cboOrg.Size = New System.Drawing.Size(176, 24)
+        Me.cboOrg.TabIndex = 125
         '
-        'txtbEstado
+        'ComboBox1
         '
-        Me.txtbEstado.Location = New System.Drawing.Point(9, 89)
-        Me.txtbEstado.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtbEstado.Name = "txtbEstado"
-        Me.txtbEstado.ReadOnly = True
-        Me.txtbEstado.Size = New System.Drawing.Size(127, 22)
-        Me.txtbEstado.TabIndex = 124
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(142, 89)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(147, 25)
-        Me.Button1.TabIndex = 126
-        Me.Button1.Text = "CAMBIAR ESTADO"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(13, 59)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(237, 24)
+        Me.ComboBox1.TabIndex = 126
         '
         'FrmPrincipal
         '
@@ -903,7 +926,6 @@ Partial Class FrmPrincipal
     Friend WithEvents ListBox3 As ListBox
     Friend WithEvents Button6 As Button
     Friend WithEvents Label12 As Label
-    Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents btnAnadirAlumnos As Button
     Friend WithEvents btnEliminarAlumnos As Button
@@ -919,4 +941,7 @@ Partial Class FrmPrincipal
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents txtbEstado As TextBox
+    Friend WithEvents cboOrg As ComboBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

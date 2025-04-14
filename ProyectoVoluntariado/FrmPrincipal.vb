@@ -11,6 +11,7 @@ Public Class FrmPrincipal
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ActualizarCboOds()
+        ActualizarCboOds()
         'cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
 
         Dim lista As List(Of Voluntario) = gestion.MostrarAlumnos()
@@ -35,6 +36,17 @@ Public Class FrmPrincipal
             Exit Sub
         End If
         cboODS.Items.AddRange(listaOds.ToArray)
+    End Sub
+    Private Sub ActualizarCboOrganizaciones()
+        Dim msgError As String = ""
+        Dim listaOrg As ReadOnlyCollection(Of Organizacion)
+        cboOrg.Items.Clear()
+        listaOrg = gestion.BuscarOrg(msgError)
+        If Not String.IsNullOrWhiteSpace(msgError) Then
+            MessageBox.Show(msgError)
+            Exit Sub
+        End If
+        cboOrg.Items.AddRange(listaOrg.ToArray)
     End Sub
 
     Private Sub btnAnadirOds_Click(sender As Object, e As EventArgs) Handles btnAnadirOds.Click
@@ -113,6 +125,14 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub btnCrearActividad_Click(sender As Object, e As EventArgs) Handles btnCrearActividad.Click
-        gestor.AnyadirVoluntariado()
+        Dim nombreActividad As String = txtNombre.Text
+        Dim cantidadAlumnos As Integer = txtCapacidad.Text
+        Dim tipoActividad As New List(Of TipoVoluntariado)
+        For i As Integer = 0 To lstTipoActividad.Items.Count - 1
+            tipoActividad.Add(lstTipoActividad.Items(i))
+        Next
+        gestor.CrearActividad(tipoActividad, cantidadAlumnos, )
     End Sub
+
+
 End Class

@@ -5,4 +5,8 @@
     Public Property ActividadEconomica As String
     Public Property Telefono As String
     Public Property Localidad As String
+
+    Public Sub New(nombre As String)
+        Me.Nombre = nombre
+    End Sub
 End Class
