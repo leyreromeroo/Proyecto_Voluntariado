@@ -93,6 +93,12 @@ Partial Class FrmPrincipal
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.btnEliminarActividad = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
+<<<<<<< HEAD
+=======
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.cboOrg = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -359,7 +365,11 @@ Partial Class FrmPrincipal
         '
         'grpGestionAct
         '
+<<<<<<< HEAD
         Me.grpGestionAct.Controls.Add(Me.cboOrganizaciones)
+=======
+        Me.grpGestionAct.Controls.Add(Me.cboOrg)
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
         Me.grpGestionAct.Controls.Add(Me.Label16)
         Me.grpGestionAct.Controls.Add(Me.btnCrearActividad)
         Me.grpGestionAct.Controls.Add(Me.Label15)
@@ -521,12 +531,21 @@ Partial Class FrmPrincipal
         '
         'txtDescripcion
         '
+<<<<<<< HEAD
         Me.txtDescripcion.Location = New System.Drawing.Point(34, 515)
         Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(595, 92)
         Me.txtDescripcion.TabIndex = 112
+=======
+        Me.TextBox8.Location = New System.Drawing.Point(34, 515)
+        Me.TextBox8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TextBox8.Multiline = True
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(595, 92)
+        Me.TextBox8.TabIndex = 112
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
         '
         'btnEliminarTipoAc
         '
@@ -580,6 +599,7 @@ Partial Class FrmPrincipal
         '
         'lstOdsAnyadidos
         '
+<<<<<<< HEAD
         Me.lstOdsAnyadidos.FormattingEnabled = True
         Me.lstOdsAnyadidos.ItemHeight = 16
         Me.lstOdsAnyadidos.Location = New System.Drawing.Point(24, 170)
@@ -587,6 +607,15 @@ Partial Class FrmPrincipal
         Me.lstOdsAnyadidos.Name = "lstOdsAnyadidos"
         Me.lstOdsAnyadidos.Size = New System.Drawing.Size(317, 68)
         Me.lstOdsAnyadidos.TabIndex = 101
+=======
+        Me.lstDatosAnyadidos.FormattingEnabled = True
+        Me.lstDatosAnyadidos.ItemHeight = 16
+        Me.lstDatosAnyadidos.Location = New System.Drawing.Point(24, 170)
+        Me.lstDatosAnyadidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lstDatosAnyadidos.Name = "lstDatosAnyadidos"
+        Me.lstDatosAnyadidos.Size = New System.Drawing.Size(317, 68)
+        Me.lstDatosAnyadidos.TabIndex = 101
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
         '
         'cboODS
         '
@@ -729,7 +758,11 @@ Partial Class FrmPrincipal
         '
         'GroupBox2
         '
+<<<<<<< HEAD
         Me.GroupBox2.Controls.Add(Me.cmbNombreActividadEliminar)
+=======
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
         Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.GroupBox3)
         Me.GroupBox2.Controls.Add(Me.btnEliminarActividad)
@@ -844,6 +877,36 @@ Partial Class FrmPrincipal
         Me.Label12.Size = New System.Drawing.Size(0, 16)
         Me.Label12.TabIndex = 73
         '
+<<<<<<< HEAD
+=======
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(297, 57)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(140, 16)
+        Me.Label16.TabIndex = 124
+        Me.Label16.Text = "NOMBRE ACTIVIDAD"
+        '
+        'cboOrg
+        '
+        Me.cboOrg.FormattingEnabled = True
+        Me.cboOrg.Location = New System.Drawing.Point(453, 51)
+        Me.cboOrg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cboOrg.Name = "cboOrg"
+        Me.cboOrg.Size = New System.Drawing.Size(176, 24)
+        Me.cboOrg.TabIndex = 125
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(13, 59)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(237, 24)
+        Me.ComboBox1.TabIndex = 126
+        '
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
         'FrmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -941,7 +1004,13 @@ Partial Class FrmPrincipal
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents txtbEstado As TextBox
+<<<<<<< HEAD
     Friend WithEvents cboOrganizaciones As ComboBox
     Friend WithEvents Label16 As Label
     Friend WithEvents cmbNombreActividadEliminar As ComboBox
+=======
+    Friend WithEvents cboOrg As ComboBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
 End Class

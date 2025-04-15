@@ -16,10 +16,15 @@ Public Class FrmPrincipal
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ActualizarCboOds()
+<<<<<<< HEAD
         ActualizarCboOrganizaciones()
         ActualizarlstAlumnos()
         CargarVoluntariados()
         ' cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
+=======
+        ActualizarCboOds()
+        'cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
 
         'Dim lista As List(Of Voluntario) = gestion.MostrarAlumnos()
         'For Each vol As Voluntario In lista
@@ -64,6 +69,17 @@ Public Class FrmPrincipal
             Exit Sub
         End If
         cboODS.Items.AddRange(listaOds.ToArray)
+    End Sub
+    Private Sub ActualizarCboOrganizaciones()
+        Dim msgError As String = ""
+        Dim listaOrg As ReadOnlyCollection(Of Organizacion)
+        cboOrg.Items.Clear()
+        listaOrg = gestion.BuscarOrg(msgError)
+        If Not String.IsNullOrWhiteSpace(msgError) Then
+            MessageBox.Show(msgError)
+            Exit Sub
+        End If
+        cboOrg.Items.AddRange(listaOrg.ToArray)
     End Sub
 
     Private Sub ActualizarCboOrganizaciones()
@@ -135,6 +151,7 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub btnCrearActividad_Click(sender As Object, e As EventArgs) Handles btnCrearActividad.Click
+<<<<<<< HEAD
         'Dim listaTipoActividad As New List(Of TipoVoluntariado)
         'Dim odsSeleccionados As New List(Of ODS)
         'Dim voluntariosSeleccionados As New List(Of Voluntario)
@@ -206,5 +223,16 @@ Public Class FrmPrincipal
         End If
     End Sub
 
+=======
+        Dim nombreActividad As String = txtNombre.Text
+        Dim cantidadAlumnos As Integer = txtCapacidad.Text
+        Dim tipoActividad As New List(Of TipoVoluntariado)
+        For i As Integer = 0 To lstTipoActividad.Items.Count - 1
+            tipoActividad.Add(lstTipoActividad.Items(i))
+        Next
+        gestor.CrearActividad(tipoActividad, cantidadAlumnos, )
+    End Sub
+
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
 
 End Class

@@ -6,6 +6,7 @@
     Public Property Telefono As String
     Public Property Localidad As String
 
+<<<<<<< HEAD
     Public Sub New(nIF As String, nombre As String, telefono As String, localidad As String)
         Me.Nombre = nombre
         Me.NIF = nIF
@@ -41,4 +42,9 @@
     Public Overrides Function ToString() As String
         Return $"{Nombre}"
     End Function
+=======
+    Public Sub New(nombre As String)
+        Me.Nombre = nombre
+    End Sub
+>>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
 End Class
