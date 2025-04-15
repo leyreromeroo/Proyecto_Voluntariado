@@ -1,7 +1,8 @@
 ﻿Public Class Voluntariado
     Implements IEquatable(Of Voluntariado)
     Public Property Codigo As Integer
-    Public Property Tipo As New List(Of String) From {"Medioambiental", "Social", "Educacional", "Técnico"}
+    'Public Property Tipo As New List(Of String) From {"Medioambiental", "Social", "Educacional", "Técnico"}
+    Public Property Tipo As List(Of TipoVoluntariado)
     Public Property Capacidad As Integer
     Public Property Estado As String
     Public Property Nombre As String
@@ -18,9 +19,9 @@
         Voluntarios = New List(Of Voluntario)()
     End Sub
 
-    Public Sub New(codActividad As Integer, tipo As List(Of String), capacidad As Integer, estado As String, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String)
+    Public Sub New(codActividad As Integer, capacidad As Integer, estado As String, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String)
         Me.Codigo = Codigo
-        Me.Tipo = tipo
+        Tipo = New List(Of TipoVoluntariado)
         Me.Capacidad = capacidad
         Me.Estado = estado
         Me.Nombre = nombre

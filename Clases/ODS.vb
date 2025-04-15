@@ -11,6 +11,13 @@
         'Me.Descripcion = descripcion
     End Sub
 
+    Public Sub New(nombre As String)
+        Me.Nombre = nombre
+    End Sub
+
+    Public Sub New()
+    End Sub
+
     Public Overrides Function Equals(obj As Object) As Boolean
         Return Equals(TryCast(obj, ODS))
     End Function
