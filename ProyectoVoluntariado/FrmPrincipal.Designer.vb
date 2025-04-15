@@ -58,15 +58,12 @@ Partial Class FrmPrincipal
         Me.lstbAlumnAnadidos = New System.Windows.Forms.ListBox()
         Me.lstbAlumn = New System.Windows.Forms.ListBox()
         Me.btnAnadirODS = New System.Windows.Forms.Button()
-        Me.btnAñadirTipoAc = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnAnadirAlumnos = New System.Windows.Forms.Button()
         Me.btnEliminarAlumnos = New System.Windows.Forms.Button()
         Me.txtDescripcion = New System.Windows.Forms.TextBox()
-        Me.btnEliminarTipoAc = New System.Windows.Forms.Button()
         Me.btnEliminarODS = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.lstTipoActividad = New System.Windows.Forms.ListBox()
         Me.cboTipoActividad = New System.Windows.Forms.ComboBox()
         Me.lstOdsAnyadidos = New System.Windows.Forms.ListBox()
         Me.cboODS = New System.Windows.Forms.ComboBox()
@@ -367,15 +364,12 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.Controls.Add(Me.lstbAlumnAnadidos)
         Me.grpGestionAct.Controls.Add(Me.lstbAlumn)
         Me.grpGestionAct.Controls.Add(Me.btnAnadirODS)
-        Me.grpGestionAct.Controls.Add(Me.btnAñadirTipoAc)
         Me.grpGestionAct.Controls.Add(Me.Label7)
         Me.grpGestionAct.Controls.Add(Me.btnAnadirAlumnos)
         Me.grpGestionAct.Controls.Add(Me.btnEliminarAlumnos)
         Me.grpGestionAct.Controls.Add(Me.txtDescripcion)
-        Me.grpGestionAct.Controls.Add(Me.btnEliminarTipoAc)
         Me.grpGestionAct.Controls.Add(Me.btnEliminarODS)
         Me.grpGestionAct.Controls.Add(Me.Label11)
-        Me.grpGestionAct.Controls.Add(Me.lstTipoActividad)
         Me.grpGestionAct.Controls.Add(Me.cboTipoActividad)
         Me.grpGestionAct.Controls.Add(Me.lstOdsAnyadidos)
         Me.grpGestionAct.Controls.Add(Me.cboODS)
@@ -477,17 +471,6 @@ Partial Class FrmPrincipal
         Me.btnAnadirODS.Text = "AÑADIR"
         Me.btnAnadirODS.UseVisualStyleBackColor = True
         '
-        'btnAñadirTipoAc
-        '
-        Me.btnAñadirTipoAc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAñadirTipoAc.Location = New System.Drawing.Point(426, 244)
-        Me.btnAñadirTipoAc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnAñadirTipoAc.Name = "btnAñadirTipoAc"
-        Me.btnAñadirTipoAc.Size = New System.Drawing.Size(80, 31)
-        Me.btnAñadirTipoAc.TabIndex = 116
-        Me.btnAñadirTipoAc.Text = "AÑADIR"
-        Me.btnAñadirTipoAc.UseVisualStyleBackColor = True
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -528,17 +511,6 @@ Partial Class FrmPrincipal
         Me.txtDescripcion.Size = New System.Drawing.Size(595, 92)
         Me.txtDescripcion.TabIndex = 112
         '
-        'btnEliminarTipoAc
-        '
-        Me.btnEliminarTipoAc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarTipoAc.Location = New System.Drawing.Point(512, 245)
-        Me.btnEliminarTipoAc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnEliminarTipoAc.Name = "btnEliminarTipoAc"
-        Me.btnEliminarTipoAc.Size = New System.Drawing.Size(85, 31)
-        Me.btnEliminarTipoAc.TabIndex = 111
-        Me.btnEliminarTipoAc.Text = "ELIMINAR"
-        Me.btnEliminarTipoAc.UseVisualStyleBackColor = True
-        '
         'btnEliminarODS
         '
         Me.btnEliminarODS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -558,16 +530,6 @@ Partial Class FrmPrincipal
         Me.Label11.Size = New System.Drawing.Size(112, 16)
         Me.Label11.TabIndex = 106
         Me.Label11.Text = "TIPO ACTIVIDAD"
-        '
-        'lstTipoActividad
-        '
-        Me.lstTipoActividad.FormattingEnabled = True
-        Me.lstTipoActividad.ItemHeight = 16
-        Me.lstTipoActividad.Location = New System.Drawing.Point(379, 172)
-        Me.lstTipoActividad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lstTipoActividad.Name = "lstTipoActividad"
-        Me.lstTipoActividad.Size = New System.Drawing.Size(250, 68)
-        Me.lstTipoActividad.TabIndex = 105
         '
         'cboTipoActividad
         '
@@ -912,10 +874,8 @@ Partial Class FrmPrincipal
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents lstTipoActividad As ListBox
     Friend WithEvents cboTipoActividad As ComboBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents btnEliminarTipoAc As Button
     Friend WithEvents btnEliminarODS As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
@@ -932,7 +892,6 @@ Partial Class FrmPrincipal
     Friend WithEvents txtDescripcion As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents btnAnadirODS As Button
-    Friend WithEvents btnAñadirTipoAc As Button
     Friend WithEvents lstbAlumnAnadidos As ListBox
     Friend WithEvents lstbAlumn As ListBox
     Friend WithEvents Label14 As Label

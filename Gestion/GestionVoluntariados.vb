@@ -27,45 +27,43 @@ Public Class GestionVoluntariados
         cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
     End Sub
 
-    Public Function CrearActividad(tipo As List(Of TipoVoluntariado), capacidad As Integer, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario)) As String
+    Public Function CrearActividad(tipo As TipoVoluntariado, capacidad As Integer, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario)) As String
         Dim msgError As String = ""
         ' Validaciones iniciales
         If String.IsNullOrWhiteSpace(nombre) Then
-            Return msgError = "El nombre no puede estar vacío"
+            Return "El nombre no puede estar vacío"
         End If
 
         If String.IsNullOrWhiteSpace(descripcion) Then
-            Return msgError = "La descripción no puede estar vacía"
+            Return "La descripción no puede estar vacía"
         End If
 
         If capacidad <= 0 Then
-            Return msgError = "La capacidad debe ser mayor que 0"
+            Return "La capacidad debe ser mayor que 0"
         End If
 
         If fechaInicio > fechaFin Then
-            Return msgError = "La fecha de inicio no puede ser posterior a la fecha de fin"
+            Return "La fecha de inicio no puede ser posterior a la fecha de fin"
         End If
 
         If fechaInicio < Date.Today Then
-            Return msgError = "La fecha de inicio no puede ser anterior al día actual"
+            Return "La fecha de inicio no puede ser anterior al día actual"
         End If
 
         If String.IsNullOrWhiteSpace(nif_org.NIF) Then
-            Return msgError = "El NIF de la organización no puede estar vacío"
+            Return "El NIF de la organización no puede estar vacío"
         End If
-        If tipo Is Nothing OrElse tipo.Count = 0 Then
-            Return msgError = "Debe seleccionar al menos un tipo"
+        If tipo Is Nothing OrElse String.IsNullOrWhiteSpace(tipo.Nombre) Then
+            Return "Debe seleccionar al menos un tipo"
         End If
 
         If listaODS Is Nothing OrElse listaODS.Count = 0 Then
-            Return msgError = "Debe seleccionar al menos un ODS"
+            Return "Debe seleccionar al menos un ODS"
         End If
 
         If listaVoluntarios Is Nothing OrElse listaVoluntarios.Count = 0 Then Return "Debe asignar al menos un voluntario"
 
         Dim oConexion As New SqlConnection(cadenaConexion)
-        ' Dim transaction As SqlTransaction = Nothing
-        msgError = ""
         Try
             oConexion.Open()
 
@@ -76,29 +74,8 @@ Public Class GestionVoluntariados
             Dim numOrg As Integer = cmdVerificarOrg.ExecuteScalar()
 
             If numOrg = 0 Then
-                Return msgError = "La organización no existe"
+                Return "La organización no existe"
             End If
-
-            ' 2. Verificar que el tipo de actividad existe SE ROMPE AQUI, NO ENCUENTRA EL TIPO
-            'Dim sqlVerificarTipo As String = "SELECT COUNT(*) FROM TIPO_ACTIVIDAD WHERE NOMBRE = @TipoAct"
-            'Dim cmdVerificarTipo As New SqlCommand(sqlVerificarTipo, oConexion)
-            'cmdVerificarTipo.Parameters.AddWithValue("@TipoAct", tipo.Nombre)
-            'Dim countTipo As Integer = cmdVerificarTipo.ExecuteScalar()
-
-            'If countTipo = 0 Then
-            '    Return msgError = "El tipo de actividad no existe"
-            'End If
-
-            For Each tipoAct In tipo
-                Dim sqlVerificarTipo As String = "SELECT COUNT(*) FROM TIPO_ACTIVIDAD WHERE NOMBRE = @Nombre"
-                Dim cmdVerificarTipo As New SqlCommand(sqlVerificarTipo, oConexion)
-                cmdVerificarTipo.Parameters.AddWithValue("@Nombre", tipoAct.Nombre)
-                Dim numTipo As Integer = cmdVerificarTipo.ExecuteScalar()
-
-                If numTipo = 0 Then
-                    Return msgError = $"El tipo de actividad {tipoAct.Nombre} no existe"
-                End If
-            Next
 
             ' 3. Verificar que los ODS existen Funciona
             For Each ods In listaODS
@@ -108,7 +85,7 @@ Public Class GestionVoluntariados
                 Dim numODS As Integer = cmdVerificarODS.ExecuteScalar()
 
                 If numODS = 0 Then
-                    Return msgError = $"El ODS {ods} no existe"
+                    Return $"El ODS {ods} no existe"
                 End If
             Next
 
@@ -122,53 +99,48 @@ Public Class GestionVoluntariados
             cmdInsertActividad.Parameters.AddWithValue("@FechaFin", fechaFin)
             cmdInsertActividad.Parameters.AddWithValue("@Capacidad", capacidad)
             cmdInsertActividad.Parameters.AddWithValue("@Nif_org", nif_org.NIF)
-            For Each tipoAct In tipo
-                cmdInsertActividad.Parameters.AddWithValue("@TipoAct", tipoAct.Nombre)
-            Next
-            'cmdInsertActividad.Parameters.AddWithValue("@TipoAct", tipo) 'Creo que este es el fallo, que es una lista
+            cmdInsertActividad.Parameters.AddWithValue("@TipoAct", tipo.Nombre)
 
-            Dim filasActividad As Integer = cmdInsertActividad.ExecuteNonQuery() 'Falla aqui
+            Dim filasActividad As Integer = cmdInsertActividad.ExecuteNonQuery()
 
             If filasActividad = 0 Then
-                Return msgError = "No se pudo insertar la actividad"
+                Return "No se pudo insertar la actividad"
             End If
 
-            ' 5. Insertar los tipos de actividad asociados
-            For Each tipoAct In tipo
-                Dim sqlInsertTipo As String = "INSERT INTO TIPO_ACTIVIDAD (NOMBRE) VALUES (@NombreTipoAct)"
-                Dim cmdInsertTipo As New SqlCommand(sqlInsertTipo, oConexion)
-                cmdInsertTipo.Parameters.AddWithValue("@NombreTipoAct", tipoAct.Nombre)
-                Dim filasAfectadas As Integer = cmdInsertTipo.ExecuteNonQuery()
-                If filasAfectadas = 0 Then
-                    Return msgError = "No se pudo insertar los tipos"
+
+            'Dim cmdCodActividad As New SqlCommand($"SELECT CODACTIVIDAD FROM ACTIVIDAD WHERE ACTIVIDAD.NOMBRE = '{nombre}'")
+            Dim cmdCodActividad As New SqlCommand("SELECT CODACTIVIDAD FROM ACTIVIDAD WHERE NOMBRE = @nombre", oConexion)
+            cmdCodActividad.Parameters.AddWithValue("@nombre", nombre)
+            ' Ejecutar la consulta
+            Dim codActividad As Integer = cmdCodActividad.ExecuteScalar() ' Ya tienes el codActividad
+
+            ' 5. Añadir Voluntarios
+            For Each voluntario In listaVoluntarios
+                Dim cmdVol As New SqlCommand("INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD (DNI, CODACTIVIDAD) VALUES (@dni, @idActividad)", oConexion)
+
+                cmdVol.Parameters.AddWithValue("@dni", voluntario.DNI)
+                cmdVol.Parameters.AddWithValue("@idActividad", codActividad)
+                Dim rowsAffected As Integer = cmdVol.ExecuteNonQuery()
+                If rowsAffected = 0 Then
+                    Return $"No se pudo asociar el voluntario {voluntario.Nombre} al voluntariado"
                 End If
             Next
-            ' 5. Insertar las relaciones con ODS
+
+            ' 6. Insertar las relaciones con ODS
             For Each ods In listaODS
                 Dim sqlInsertODS As String = "INSERT INTO CONTIENE_VOLUNTARIADO_ODS (CODACTIVIDAD, NUMODS) VALUES (@CodActividad, @NumODS)"
                 Dim cmdInsertODS As New SqlCommand(sqlInsertODS, oConexion)
-                'cmdInsertODS.Parameters.AddWithValue("@CodActividad", codActividad)
-                cmdInsertODS.Parameters.AddWithValue("@NumODS", ods)
+                cmdInsertODS.Parameters.AddWithValue("@CodActividad", codActividad)
+                cmdInsertODS.Parameters.AddWithValue("@NumODS", ods.Numero)
 
                 Dim rowsAffected As Integer = cmdInsertODS.ExecuteNonQuery()
 
                 If rowsAffected = 0 Then
-                    Return msgError = $"No se pudo asociar el ODS {ods} al voluntariado"
+                    Return $"No se pudo asociar el ODS {ods} al voluntariado"
                 End If
             Next
-            Dim cmdCodActividad As New SqlCommand($"SELECT PARTICIPA_VOLUNTARIO_ACTIVIDAD.CODACTIVIDAD FROM PARTICIPA_VOLUNTARIO_ACTIVIDAD WHERE PARTICIPA_VOLUNTARIO_ACTIVIDAD.CODACTIVIDAD IN (SELECT ACTIVIDAD.CODACTIVIDAD FROM ACTIVIDAD WHERE ACTIVIDAD.NOMBRE = {nombre}")
-            Dim codActividad As Integer = Integer.TryParse(cmdCodActividad.ToString, codActividad)
-            ' 6. Añadir Voluntarios
-            For Each dni In listaVoluntarios
-                Dim cmdVol As New SqlCommand("INSERT INTO PARTICIPA_VOLUNTARIO_ACTIVIDAD (DNI, CODACTIVIDAD) VALUES (@dni, @idActividad)", oConexion)
-
-                cmdVol.Parameters.AddWithValue("@dni", dni)
-                cmdVol.Parameters.AddWithValue("@idActividad", codActividad)
-                cmdVol.ExecuteNonQuery()
-            Next
-
         Catch ex As Exception
-            Return msgError = ex.Message
+            Return ex.Message
         Finally
             oConexion.Close()
         End Try
