@@ -67,3 +67,22 @@ C:\Users\leyre\Desktop\prog ver1\Proyecto_Voluntariado\ProyectoVoluntariado\obj\
 C:\Users\leyre\Desktop\prog ver1\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.exe
 C:\Users\leyre\Desktop\prog ver1\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.xml
 C:\Users\leyre\Desktop\prog ver1\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.pdb
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.exe.config
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.exe
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.pdb
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.xml
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.dll
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.dll
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.pdb
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.xml
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.pdb
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.xml
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.AssemblyReference.cache
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.FrmPrincipal.resources
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.Resources.resources
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.GenerateResource.cache
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.CoreCompileInputs.cache
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPres.2A98DD23.Up2Date
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.exe
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.xml
+C:\Users\leyre\Desktop\prog ver1 - copia\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.pdb

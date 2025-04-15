@@ -13,6 +13,9 @@
         Me.Localidad = localidad
     End Sub
 
+    'Public Sub New(nIF As String)
+    '    Me.NIF = nIF
+    'End Sub
 
     Public Sub New(nIF As String, nombre As String)
         Me.NIF = nIF
@@ -38,5 +41,4 @@
     Public Overrides Function ToString() As String
         Return $"{Nombre}"
     End Function
-
 End Class

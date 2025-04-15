@@ -51,9 +51,7 @@ Public Class GestionVoluntariados
         End If
 
         If String.IsNullOrWhiteSpace(nif_org.NIF) Then
-
             Return msgError = "El NIF de la organización no puede estar vacío"
-
         End If
         If tipo Is Nothing OrElse tipo.Count = 0 Then
             Return msgError = "Debe seleccionar al menos un tipo"
@@ -283,7 +281,8 @@ Public Class GestionVoluntariados
         End Try
         Return listaOds.AsReadOnly
     End Function
-  Public Function BuscarOrganizaciones(ByRef msgError As String) As ReadOnlyCollection(Of Organizacion)
+
+    Public Function BuscarOrganizaciones(ByRef msgError As String) As ReadOnlyCollection(Of Organizacion)
         Dim listaOrganizaciones As New List(Of Organizacion)
         msgError = ""
         Dim oConexion As New SqlConnection(cadenaConexion)
@@ -347,5 +346,4 @@ Public Class GestionVoluntariados
         conexion.Close()
         Return listaVoluntarios.AsReadOnly
     End Function
-
 End Class

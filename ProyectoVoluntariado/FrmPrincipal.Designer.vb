@@ -41,6 +41,8 @@ Partial Class FrmPrincipal
         Me.label24 = New System.Windows.Forms.Label()
         Me.lblFechaFin = New System.Windows.Forms.Label()
         Me.txtCapacidad = New System.Windows.Forms.TextBox()
+        Me.txtFechaIni = New System.Windows.Forms.TextBox()
+        Me.txtFechaFin = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -48,9 +50,7 @@ Partial Class FrmPrincipal
         Me.grpConsultarAct = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.grpGestionAct = New System.Windows.Forms.GroupBox()
-        Me.dtpFechaFin = New System.Windows.Forms.DateTimePicker()
         Me.cboOrganizaciones = New System.Windows.Forms.ComboBox()
-        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.btnCrearActividad = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -104,7 +104,7 @@ Partial Class FrmPrincipal
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(371, 90)
+        Me.Label21.Location = New System.Drawing.Point(297, 89)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(76, 16)
         Me.Label21.TabIndex = 59
@@ -270,6 +270,22 @@ Partial Class FrmPrincipal
         Me.txtCapacidad.Size = New System.Drawing.Size(95, 22)
         Me.txtCapacidad.TabIndex = 91
         '
+        'txtFechaIni
+        '
+        Me.txtFechaIni.Location = New System.Drawing.Point(177, 86)
+        Me.txtFechaIni.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtFechaIni.Name = "txtFechaIni"
+        Me.txtFechaIni.Size = New System.Drawing.Size(95, 22)
+        Me.txtFechaIni.TabIndex = 92
+        '
+        'txtFechaFin
+        '
+        Me.txtFechaFin.Location = New System.Drawing.Point(453, 83)
+        Me.txtFechaFin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtFechaFin.Name = "txtFechaFin"
+        Me.txtFechaFin.Size = New System.Drawing.Size(90, 22)
+        Me.txtFechaFin.TabIndex = 93
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -343,9 +359,7 @@ Partial Class FrmPrincipal
         '
         'grpGestionAct
         '
-        Me.grpGestionAct.Controls.Add(Me.dtpFechaFin)
         Me.grpGestionAct.Controls.Add(Me.cboOrganizaciones)
-        Me.grpGestionAct.Controls.Add(Me.dtpFechaInicio)
         Me.grpGestionAct.Controls.Add(Me.Label16)
         Me.grpGestionAct.Controls.Add(Me.btnCrearActividad)
         Me.grpGestionAct.Controls.Add(Me.Label15)
@@ -369,6 +383,8 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.Controls.Add(Me.LBL_NOMBRE_ACTIVIDAD)
         Me.grpGestionAct.Controls.Add(Me.txtNombre)
         Me.grpGestionAct.Controls.Add(Me.Label3)
+        Me.grpGestionAct.Controls.Add(Me.txtFechaFin)
+        Me.grpGestionAct.Controls.Add(Me.txtFechaIni)
         Me.grpGestionAct.Controls.Add(Me.txtCapacidad)
         Me.grpGestionAct.Controls.Add(Me.Label22)
         Me.grpGestionAct.Controls.Add(Me.Label21)
@@ -382,13 +398,6 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.TabStop = False
         Me.grpGestionAct.Text = "GESTION DE ACTIVIDADES"
         '
-        'dtpFechaFin
-        '
-        Me.dtpFechaFin.Location = New System.Drawing.Point(453, 84)
-        Me.dtpFechaFin.Name = "dtpFechaFin"
-        Me.dtpFechaFin.Size = New System.Drawing.Size(176, 22)
-        Me.dtpFechaFin.TabIndex = 111
-        '
         'cboOrganizaciones
         '
         Me.cboOrganizaciones.FormattingEnabled = True
@@ -398,21 +407,14 @@ Partial Class FrmPrincipal
         Me.cboOrganizaciones.Size = New System.Drawing.Size(176, 24)
         Me.cboOrganizaciones.TabIndex = 125
         '
-        'dtpFechaInicio
-        '
-        Me.dtpFechaInicio.Location = New System.Drawing.Point(177, 84)
-        Me.dtpFechaInicio.Name = "dtpFechaInicio"
-        Me.dtpFechaInicio.Size = New System.Drawing.Size(176, 22)
-        Me.dtpFechaInicio.TabIndex = 109
-        '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(325, 57)
+        Me.Label16.Location = New System.Drawing.Point(297, 57)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(108, 16)
+        Me.Label16.Size = New System.Drawing.Size(126, 16)
         Me.Label16.TabIndex = 124
-        Me.Label16.Text = "ORGANIZACIÓN"
+        Me.Label16.Text = "ORGANIZACIONES"
         '
         'btnCrearActividad
         '
@@ -890,6 +892,8 @@ Partial Class FrmPrincipal
     Friend WithEvents label24 As Label
     Friend WithEvents lblFechaFin As Label
     Friend WithEvents txtCapacidad As TextBox
+    Friend WithEvents txtFechaIni As TextBox
+    Friend WithEvents txtFechaFin As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label8 As Label
@@ -937,12 +941,7 @@ Partial Class FrmPrincipal
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents txtbEstado As TextBox
-
     Friend WithEvents cboOrganizaciones As ComboBox
     Friend WithEvents Label16 As Label
     Friend WithEvents cmbNombreActividadEliminar As ComboBox
-    Friend WithEvents cboOrg As ComboBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents dtpFechaFin As DateTimePicker
-    Friend WithEvents dtpFechaInicio As DateTimePicker
 End Class
