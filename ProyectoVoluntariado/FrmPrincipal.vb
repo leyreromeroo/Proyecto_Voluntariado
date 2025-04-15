@@ -16,15 +16,13 @@ Public Class FrmPrincipal
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ActualizarCboOds()
-<<<<<<< HEAD
         ActualizarCboOrganizaciones()
         ActualizarlstAlumnos()
         CargarVoluntariados()
         ' cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
-=======
         ActualizarCboOds()
         'cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
->>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
+
 
         'Dim lista As List(Of Voluntario) = gestion.MostrarAlumnos()
         'For Each vol As Voluntario In lista
@@ -69,17 +67,6 @@ Public Class FrmPrincipal
             Exit Sub
         End If
         cboODS.Items.AddRange(listaOds.ToArray)
-    End Sub
-    Private Sub ActualizarCboOrganizaciones()
-        Dim msgError As String = ""
-        Dim listaOrg As ReadOnlyCollection(Of Organizacion)
-        cboOrg.Items.Clear()
-        listaOrg = gestion.BuscarOrg(msgError)
-        If Not String.IsNullOrWhiteSpace(msgError) Then
-            MessageBox.Show(msgError)
-            Exit Sub
-        End If
-        cboOrg.Items.AddRange(listaOrg.ToArray)
     End Sub
 
     Private Sub ActualizarCboOrganizaciones()
@@ -151,27 +138,11 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub btnCrearActividad_Click(sender As Object, e As EventArgs) Handles btnCrearActividad.Click
-<<<<<<< HEAD
-        'Dim listaTipoActividad As New List(Of TipoVoluntariado)
-        'Dim odsSeleccionados As New List(Of ODS)
-        'Dim voluntariosSeleccionados As New List(Of Voluntario)
-        'Dim organizacion As New Organizacion
 
-        'Dim tipoActividad As New TipoVoluntariado With {
-        '    .Nombre = lstTipoActividad.Items.ToString() 'No sé si es item y hacer un for each
-        '}
-        'listaTipoActividad.Add(tipoActividad)
-
-        'Dim org As Organizacion = TryCast(cboOrganizaciones.SelectedItem, Organizacion)
-
-        'For Each item As ODS In lstOdsAnyadidos.Items
-        '    odsSeleccionados.Add(item)
-        'Next
-        'For Each item As Voluntario In lstbAlumnAnadidos.Items
-        '    voluntariosSeleccionados.Add(item)
-        'Next
-
-        'MessageBox.Show($"{gestion.CrearActividad(listaTipoActividad, txtCapacidad.Text, txtNombre.Text, txtFechaIni.Text, txtFechaFin.Text, txtDescripcion.Text, org, odsSeleccionados, voluntariosSeleccionados)}")
+        Dim nombreActividad As String = txtNombre.Text
+        Dim capacidad As Integer = Integer.Parse(txtCapacidad.Text)
+        Dim fechaInicio As Date = dtpFechaInicio.Value
+        Dim fechaFin As Date = dtpFechaFin.Value
         Dim listaTipoActividad As New List(Of TipoVoluntariado)
         Dim odsSeleccionados As New List(Of ODS)
         Dim voluntariosSeleccionados As New List(Of Voluntario)
@@ -189,20 +160,10 @@ Public Class FrmPrincipal
             voluntariosSeleccionados.Add(item)
         Next
 
-        'Dim nuevaActividad As New Voluntariado With {
-        '    .Nombre = txtNombre.Text,
-        '    .Capacidad = Convert.ToInt32(txtCapacidad.Text),
-        '    .FechaInicio = Convert.ToDateTime(txtFechaIni.Text),
-        '    .FechaFin = Convert.ToDateTime(txtFechaFin.Text),
-        '    .Descripcion = txtDescripcion.Text,
-        '    .Organizaciones = organizacion,
-        '    .Tipo = listaTipoActividad,
-        '    .ListaODS = odsSeleccionados,
-        '    .Voluntarios = voluntariosSeleccionados
-        '}
+        ' Llamar a la función CrearActividad
+        Dim msgError As String = gestor.CrearActividad(listaTipoActividad, capacidad, nombreActividad, fechaInicio, fechaFin, txtDescripcion.Text, organizacion, listaODS, listaVoluntarios)
 
-        'Dim msgError As String = gestion.CrearActividad(nuevaActividad)
-        Dim msgError As String = gestion.CrearActividad(listaTipoActividad, txtCapacidad.Text, txtNombre.Text, txtFechaIni.Text, txtFechaFin.Text, txtDescripcion.Text, organizacion, odsSeleccionados, voluntariosSeleccionados)
+        ' Mostrar mensaje
         If String.IsNullOrWhiteSpace(msgError) Then
             MessageBox.Show("Actividad creada exitosamente.")
             CargarVoluntariados()
@@ -222,17 +183,5 @@ Public Class FrmPrincipal
             End If
         End If
     End Sub
-
-=======
-        Dim nombreActividad As String = txtNombre.Text
-        Dim cantidadAlumnos As Integer = txtCapacidad.Text
-        Dim tipoActividad As New List(Of TipoVoluntariado)
-        For i As Integer = 0 To lstTipoActividad.Items.Count - 1
-            tipoActividad.Add(lstTipoActividad.Items(i))
-        Next
-        gestor.CrearActividad(tipoActividad, cantidadAlumnos, )
-    End Sub
-
->>>>>>> 00ef619c841195e70ce559ab86410dcacb1a7439
 
 End Class
