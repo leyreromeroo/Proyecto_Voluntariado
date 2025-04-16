@@ -144,7 +144,7 @@ Public Class GestionVoluntariados
         Finally
             oConexion.Close()
         End Try
-        Return msgError = $"Voluntariado {nombre} creado correctamente)"
+        Return msgError = ""
     End Function
 
     Public Function EliminarVoluntariado(codActividad As Integer) As String

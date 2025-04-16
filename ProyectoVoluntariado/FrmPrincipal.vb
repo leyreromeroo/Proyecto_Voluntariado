@@ -19,18 +19,10 @@ Public Class FrmPrincipal
         ActualizarCboOrganizaciones()
         ActualizarlstAlumnos()
         CargarVoluntariados()
-        ' cboTipoActividad.Items.AddRange(voluntariado.Tipo.ToArray)
-
-        'Dim lista As List(Of Voluntario) = gestion.MostrarAlumnos()
-        'For Each vol As Voluntario In lista
-        '    lstbAlumn.Items.Add(vol)
-        'Next
-
 
         Dim tiposActividades As List(Of TipoVoluntariado) = gestor.ListaTiposActivi()
         cboTipoActividad.DataSource = tiposActividades
         cboTipoActividad.DisplayMember = "Nombre"  ' Especificamos que se muestre la propiedad "Nombre"
-
 
     End Sub
 
@@ -89,30 +81,14 @@ Public Class FrmPrincipal
         Dim odsSeleccionado As ODS = TryCast(cboODS.SelectedItem, ODS)
         If odsSeleccionado Is Nothing Then Exit Sub
         lstOdsAnyadidos.Items.Add(odsSeleccionado)
+        cboODS.Items.Remove(odsSeleccionado)
     End Sub
 
     Private Sub btnEliminarOds_Click(sender As Object, e As EventArgs) Handles btnEliminarODS.Click
         If lstOdsAnyadidos.SelectedItem Is Nothing Then Exit Sub
         lstOdsAnyadidos.Items.Remove(lstOdsAnyadidos.SelectedItem)
+
     End Sub
-
-    'Private Sub btnAnadirTiposACt_Click(sender As Object, e As EventArgs)
-
-    '    Dim tipoSeleccionado As TipoVoluntariado = TryCast(cboTipoActividad.SelectedItem, TipoVoluntariado)
-    '    If tipoSeleccionado IsNot Nothing Then
-    '        ' Evitamos duplicados
-    '        If Not lstTipoActividad.Items.Contains(tipoSeleccionado.Nombre) Then
-    '            lstTipoActividad.Items.Add(tipoSeleccionado)
-    '        End If
-    '    End If
-
-
-    'End Sub
-
-    'Private Sub btnEliminarTiposACt_Click(sender As Object, e As EventArgs)
-    '    If lstTipoActividad.SelectedItem Is Nothing Then Exit Sub
-    '    lstTipoActividad.Items.Remove(lstTipoActividad.SelectedItem)
-    'End Sub
 
     Private Sub btnAnadirAlumnos_Click(sender As Object, e As EventArgs) Handles btnAnadirAlumnos.Click
         If lstbAlumn.SelectedItem IsNot Nothing Then
@@ -135,27 +111,6 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub btnCrearActividad_Click(sender As Object, e As EventArgs) Handles btnCrearActividad.Click
-        'Dim listaTipoActividad As New List(Of TipoVoluntariado)
-        'Dim odsSeleccionados As New List(Of ODS)
-        'Dim voluntariosSeleccionados As New List(Of Voluntario)
-        'Dim organizacion As New Organizacion
-
-        'Dim tipoActividad As New TipoVoluntariado With {
-        '    .Nombre = lstTipoActividad.Items.ToString() 'No sé si es item y hacer un for each
-        '}
-        'listaTipoActividad.Add(tipoActividad)
-
-        'Dim org As Organizacion = TryCast(cboOrganizaciones.SelectedItem, Organizacion)
-
-        'For Each item As ODS In lstOdsAnyadidos.Items
-        '    odsSeleccionados.Add(item)
-        'Next
-        'For Each item As Voluntario In lstbAlumnAnadidos.Items
-        '    voluntariosSeleccionados.Add(item)
-        'Next
-
-        'MessageBox.Show($"{gestion.CrearActividad(listaTipoActividad, txtCapacidad.Text, txtNombre.Text, txtFechaIni.Text, txtFechaFin.Text, txtDescripcion.Text, org, odsSeleccionados, voluntariosSeleccionados)}")
-
         Dim odsSeleccionados As New List(Of ODS)
         Dim voluntariosSeleccionados As New List(Of Voluntario)
         Dim organizacion As Organizacion = TryCast(cboOrganizaciones.SelectedItem, Organizacion)
@@ -169,21 +124,8 @@ Public Class FrmPrincipal
             voluntariosSeleccionados.Add(item)
         Next
 
-        'Dim nuevaActividad As New Voluntariado With {
-        '    .Nombre = txtNombre.Text,
-        '    .Capacidad = Convert.ToInt32(txtCapacidad.Text),
-        '    .FechaInicio = Convert.ToDateTime(txtFechaIni.Text),
-        '    .FechaFin = Convert.ToDateTime(txtFechaFin.Text),
-        '    .Descripcion = txtDescripcion.Text,
-        '    .Organizaciones = organizacion,
-        '    .Tipo = listaTipoActividad,
-        '    .ListaODS = odsSeleccionados,
-        '    .Voluntarios = voluntariosSeleccionados
-        '}
-
-        'Dim msgError As String = gestion.CrearActividad(nuevaActividad)
-        Dim msgError As String = gestion.CrearActividad(tipoActividad, txtCapacidad.Text, txtNombre.Text, txtFechaIni.Text, txtFechaFin.Text, txtDescripcion.Text, organizacion, odsSeleccionados, voluntariosSeleccionados)
-        If String.IsNullOrWhiteSpace(msgError) Then
+        Dim msgError As String = gestion.CrearActividad(tipoActividad, txtCapacidad.Text, txtNombre.Text, dtpFechaInicio.Text, dtpFechaFin.Text, txtDescripcion.Text, organizacion, odsSeleccionados, voluntariosSeleccionados)
+        If msgError = True Then
             MessageBox.Show("Actividad creada exitosamente.")
             CargarVoluntariados()
         Else

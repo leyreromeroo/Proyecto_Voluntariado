@@ -41,8 +41,6 @@ Partial Class FrmPrincipal
         Me.label24 = New System.Windows.Forms.Label()
         Me.lblFechaFin = New System.Windows.Forms.Label()
         Me.txtCapacidad = New System.Windows.Forms.TextBox()
-        Me.txtFechaIni = New System.Windows.Forms.TextBox()
-        Me.txtFechaFin = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -90,6 +88,8 @@ Partial Class FrmPrincipal
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.btnEliminarActividad = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaFin = New System.Windows.Forms.DateTimePicker()
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -101,7 +101,7 @@ Partial Class FrmPrincipal
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(297, 89)
+        Me.Label21.Location = New System.Drawing.Point(347, 88)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(76, 16)
         Me.Label21.TabIndex = 59
@@ -110,7 +110,7 @@ Partial Class FrmPrincipal
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(77, 89)
+        Me.Label20.Location = New System.Drawing.Point(31, 89)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(93, 16)
         Me.Label20.TabIndex = 58
@@ -267,22 +267,6 @@ Partial Class FrmPrincipal
         Me.txtCapacidad.Size = New System.Drawing.Size(95, 22)
         Me.txtCapacidad.TabIndex = 91
         '
-        'txtFechaIni
-        '
-        Me.txtFechaIni.Location = New System.Drawing.Point(177, 86)
-        Me.txtFechaIni.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtFechaIni.Name = "txtFechaIni"
-        Me.txtFechaIni.Size = New System.Drawing.Size(95, 22)
-        Me.txtFechaIni.TabIndex = 92
-        '
-        'txtFechaFin
-        '
-        Me.txtFechaFin.Location = New System.Drawing.Point(453, 83)
-        Me.txtFechaFin.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtFechaFin.Name = "txtFechaFin"
-        Me.txtFechaFin.Size = New System.Drawing.Size(90, 22)
-        Me.txtFechaFin.TabIndex = 93
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -356,6 +340,8 @@ Partial Class FrmPrincipal
         '
         'grpGestionAct
         '
+        Me.grpGestionAct.Controls.Add(Me.dtpFechaFin)
+        Me.grpGestionAct.Controls.Add(Me.dtpFechaInicio)
         Me.grpGestionAct.Controls.Add(Me.cboOrganizaciones)
         Me.grpGestionAct.Controls.Add(Me.Label16)
         Me.grpGestionAct.Controls.Add(Me.btnCrearActividad)
@@ -377,8 +363,6 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.Controls.Add(Me.LBL_NOMBRE_ACTIVIDAD)
         Me.grpGestionAct.Controls.Add(Me.txtNombre)
         Me.grpGestionAct.Controls.Add(Me.Label3)
-        Me.grpGestionAct.Controls.Add(Me.txtFechaFin)
-        Me.grpGestionAct.Controls.Add(Me.txtFechaIni)
         Me.grpGestionAct.Controls.Add(Me.txtCapacidad)
         Me.grpGestionAct.Controls.Add(Me.Label22)
         Me.grpGestionAct.Controls.Add(Me.Label21)
@@ -394,6 +378,7 @@ Partial Class FrmPrincipal
         '
         'cboOrganizaciones
         '
+        Me.cboOrganizaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboOrganizaciones.FormattingEnabled = True
         Me.cboOrganizaciones.Location = New System.Drawing.Point(453, 51)
         Me.cboOrganizaciones.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -552,6 +537,7 @@ Partial Class FrmPrincipal
         '
         'cboODS
         '
+        Me.cboODS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboODS.FormattingEnabled = True
         Me.cboODS.Location = New System.Drawing.Point(24, 139)
         Me.cboODS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -618,6 +604,7 @@ Partial Class FrmPrincipal
         '
         'ComboBox2
         '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(9, 59)
         Me.ComboBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -806,6 +793,20 @@ Partial Class FrmPrincipal
         Me.Label12.Size = New System.Drawing.Size(0, 16)
         Me.Label12.TabIndex = 73
         '
+        'dtpFechaInicio
+        '
+        Me.dtpFechaInicio.Location = New System.Drawing.Point(130, 84)
+        Me.dtpFechaInicio.Name = "dtpFechaInicio"
+        Me.dtpFechaInicio.Size = New System.Drawing.Size(188, 22)
+        Me.dtpFechaInicio.TabIndex = 127
+        '
+        'dtpFechaFin
+        '
+        Me.dtpFechaFin.Location = New System.Drawing.Point(453, 84)
+        Me.dtpFechaFin.Name = "dtpFechaFin"
+        Me.dtpFechaFin.Size = New System.Drawing.Size(175, 22)
+        Me.dtpFechaFin.TabIndex = 128
+        '
         'FrmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -854,8 +855,6 @@ Partial Class FrmPrincipal
     Friend WithEvents label24 As Label
     Friend WithEvents lblFechaFin As Label
     Friend WithEvents txtCapacidad As TextBox
-    Friend WithEvents txtFechaIni As TextBox
-    Friend WithEvents txtFechaFin As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label8 As Label
@@ -903,4 +902,6 @@ Partial Class FrmPrincipal
     Friend WithEvents cboOrganizaciones As ComboBox
     Friend WithEvents Label16 As Label
     Friend WithEvents cmbNombreActividadEliminar As ComboBox
+    Friend WithEvents dtpFechaFin As DateTimePicker
+    Friend WithEvents dtpFechaInicio As DateTimePicker
 End Class
