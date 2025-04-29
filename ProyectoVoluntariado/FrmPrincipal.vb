@@ -20,6 +20,14 @@ Public Class FrmPrincipal
         ActualizarlstAlumnos()
         CargarVoluntariados()
 
+        ' Deshabilitar los campos de texto
+        lblNombre.Enabled = False
+        lblTipo.Enabled = False
+        lblCapacidad.Enabled = False
+        lblFechaIni.Enabled = False
+        lblFechaFin.Enabled = False
+        lblDescripcion.Enabled = False
+
         Dim tiposActividades As List(Of TipoVoluntariado) = gestor.ListaTiposActivi()
         cboTipoActividad.DataSource = tiposActividades
         cboTipoActividad.DisplayMember = "Nombre"  ' Especificamos que se muestre la propiedad "Nombre"
@@ -36,9 +44,21 @@ Public Class FrmPrincipal
             conexion.Open()
             adaptador.Fill(dt)
 
-            cmbNombreActividadEliminar.DisplayMember = "NOMBRE"       ' Lo que se muestra
-            cmbNombreActividadEliminar.ValueMember = "CODACTIVIDAD"   ' Lo que se usa internamente
-            cmbNombreActividadEliminar.DataSource = dt
+            ' Crear copias independientes del DataTable para cada ComboBox
+            Dim dtEliminar As DataTable = dt.Copy()
+            Dim dtConsultar As DataTable = dt.Copy()
+
+            ' Configurar el ComboBox para eliminar actividades
+            cmbNombreActividadEliminar.DisplayMember = "NOMBRE"       ' Lo que se muestra  
+            cmbNombreActividadEliminar.ValueMember = "CODACTIVIDAD"   ' Lo que se usa internamente  
+            cmbNombreActividadEliminar.DataSource = dtEliminar
+            cmbNombreActividadEliminar.SelectedIndex = -1
+
+            ' Configurar el ComboBox para consultar actividades
+            CmbNombreActividadConsultar.DisplayMember = "NOMBRE"       ' Lo que se muestra  
+            CmbNombreActividadConsultar.ValueMember = "CODACTIVIDAD"   ' Lo que se usa internamente  
+            CmbNombreActividadConsultar.DataSource = dtConsultar
+            CmbNombreActividadConsultar.SelectedIndex = -1
 
         Catch ex As Exception
             MessageBox.Show("Error al cargar los voluntariados: " & ex.Message)
@@ -46,6 +66,7 @@ Public Class FrmPrincipal
             conexion.Close()
         End Try
     End Sub
+
     Private Sub ActualizarCboOds()
         Dim msgError As String = ""
         Dim listaOds As ReadOnlyCollection(Of ODS)
@@ -196,6 +217,35 @@ Public Class FrmPrincipal
                 MessageBox.Show($"" & gestion.EliminarVoluntariado(actividadSeleccionada("CODACTIVIDAD")))
                 CargarVoluntariados()
             End If
+        End If
+    End Sub
+
+    Private Sub CmbNombreActividadConsultar_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbNombreActividadConsultar.SelectedIndexChanged
+        ' Deshabilitar los campos de texto
+        lblNombre.Enabled = True
+        lblTipo.Enabled = True
+        lblCapacidad.Enabled = True
+        lblFechaIni.Enabled = True
+        lblFechaFin.Enabled = True
+        lblDescripcion.Enabled = True
+
+        Dim actividadSeleccionada = CType(CmbNombreActividadConsultar.SelectedItem, DataRowView)
+
+        If actividadSeleccionada IsNot Nothing Then
+            Dim nombreActividad As String = actividadSeleccionada("Nombre").ToString()
+            'Ahora se habilitan los datos y se muestran
+            lblNombre.Text = nombreActividad
+
+            Dim voluntariado As New Voluntariado
+            voluntariado = gestion.BuscarVoluntariado(actividadSeleccionada("CodActividad"))
+
+
+            lblTipo.Text = voluntariado.Tipo.ToString()
+            lblCapacidad.Text = voluntariado.Capacidad.ToString()
+            lblFechaIni.Text = voluntariado.FechaInicio.ToString()
+            lblFechaFin.Text = voluntariado.FechaFin.ToString()
+            lblDescripcion.Text = voluntariado.Descripcion.ToString()
+
         End If
     End Sub
 

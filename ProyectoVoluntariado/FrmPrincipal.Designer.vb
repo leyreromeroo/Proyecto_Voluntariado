@@ -42,12 +42,14 @@ Partial Class FrmPrincipal
         Me.lblFechaFin = New System.Windows.Forms.Label()
         Me.txtCapacidad = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.grpConsultarAct = New System.Windows.Forms.GroupBox()
+        Me.CmbNombreActividadConsultar = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.grpGestionAct = New System.Windows.Forms.GroupBox()
+        Me.dtpFechaFin = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.cboOrganizaciones = New System.Windows.Forms.ComboBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.btnCrearActividad = New System.Windows.Forms.Button()
@@ -88,8 +90,6 @@ Partial Class FrmPrincipal
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.btnEliminarActividad = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.dtpFechaInicio = New System.Windows.Forms.DateTimePicker()
-        Me.dtpFechaFin = New System.Windows.Forms.DateTimePicker()
         Me.grpConsultarAct.SuspendLayout()
         Me.grpGestionAct.SuspendLayout()
         Me.grpEdicionAct.SuspendLayout()
@@ -272,17 +272,9 @@ Partial Class FrmPrincipal
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(47, 68)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(132, 16)
+        Me.Label4.Size = New System.Drawing.Size(96, 16)
         Me.Label4.TabIndex = 99
-        Me.Label4.Text = "NIF ORGANIZACION"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(209, 63)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(330, 22)
-        Me.TextBox1.TabIndex = 100
+        Me.Label4.Text = "ACTIVIDADES"
         '
         'Label8
         '
@@ -304,13 +296,13 @@ Partial Class FrmPrincipal
         '
         'grpConsultarAct
         '
+        Me.grpConsultarAct.Controls.Add(Me.CmbNombreActividadConsultar)
         Me.grpConsultarAct.Controls.Add(Me.Label10)
         Me.grpConsultarAct.Controls.Add(Me.Label5)
         Me.grpConsultarAct.Controls.Add(Me.Label8)
         Me.grpConsultarAct.Controls.Add(Me.lblNombre)
         Me.grpConsultarAct.Controls.Add(Me.lblDescripcion)
         Me.grpConsultarAct.Controls.Add(Me.lblTipo)
-        Me.grpConsultarAct.Controls.Add(Me.TextBox1)
         Me.grpConsultarAct.Controls.Add(Me.lblCapacidad)
         Me.grpConsultarAct.Controls.Add(Me.Label4)
         Me.grpConsultarAct.Controls.Add(Me.lblFechaIni)
@@ -328,6 +320,16 @@ Partial Class FrmPrincipal
         Me.grpConsultarAct.TabIndex = 103
         Me.grpConsultarAct.TabStop = False
         Me.grpConsultarAct.Text = "CONSULTAR ACTIVIDAD"
+        '
+        'CmbNombreActividadConsultar
+        '
+        Me.CmbNombreActividadConsultar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbNombreActividadConsultar.FormattingEnabled = True
+        Me.CmbNombreActividadConsultar.Location = New System.Drawing.Point(215, 60)
+        Me.CmbNombreActividadConsultar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.CmbNombreActividadConsultar.Name = "CmbNombreActividadConsultar"
+        Me.CmbNombreActividadConsultar.Size = New System.Drawing.Size(324, 24)
+        Me.CmbNombreActividadConsultar.TabIndex = 127
         '
         'Label10
         '
@@ -375,6 +377,20 @@ Partial Class FrmPrincipal
         Me.grpGestionAct.TabIndex = 104
         Me.grpGestionAct.TabStop = False
         Me.grpGestionAct.Text = "GESTION DE ACTIVIDADES"
+        '
+        'dtpFechaFin
+        '
+        Me.dtpFechaFin.Location = New System.Drawing.Point(453, 84)
+        Me.dtpFechaFin.Name = "dtpFechaFin"
+        Me.dtpFechaFin.Size = New System.Drawing.Size(175, 22)
+        Me.dtpFechaFin.TabIndex = 128
+        '
+        'dtpFechaInicio
+        '
+        Me.dtpFechaInicio.Location = New System.Drawing.Point(130, 84)
+        Me.dtpFechaInicio.Name = "dtpFechaInicio"
+        Me.dtpFechaInicio.Size = New System.Drawing.Size(188, 22)
+        Me.dtpFechaInicio.TabIndex = 127
         '
         'cboOrganizaciones
         '
@@ -694,6 +710,7 @@ Partial Class FrmPrincipal
         '
         'cmbNombreActividadEliminar
         '
+        Me.cmbNombreActividadEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbNombreActividadEliminar.FormattingEnabled = True
         Me.cmbNombreActividadEliminar.Location = New System.Drawing.Point(13, 59)
         Me.cmbNombreActividadEliminar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -793,20 +810,6 @@ Partial Class FrmPrincipal
         Me.Label12.Size = New System.Drawing.Size(0, 16)
         Me.Label12.TabIndex = 73
         '
-        'dtpFechaInicio
-        '
-        Me.dtpFechaInicio.Location = New System.Drawing.Point(130, 84)
-        Me.dtpFechaInicio.Name = "dtpFechaInicio"
-        Me.dtpFechaInicio.Size = New System.Drawing.Size(188, 22)
-        Me.dtpFechaInicio.TabIndex = 127
-        '
-        'dtpFechaFin
-        '
-        Me.dtpFechaFin.Location = New System.Drawing.Point(453, 84)
-        Me.dtpFechaFin.Name = "dtpFechaFin"
-        Me.dtpFechaFin.Size = New System.Drawing.Size(175, 22)
-        Me.dtpFechaFin.TabIndex = 128
-        '
         'FrmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -856,7 +859,6 @@ Partial Class FrmPrincipal
     Friend WithEvents lblFechaFin As Label
     Friend WithEvents txtCapacidad As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents lblDescripcion As Label
     Friend WithEvents grpConsultarAct As GroupBox
@@ -904,4 +906,5 @@ Partial Class FrmPrincipal
     Friend WithEvents cmbNombreActividadEliminar As ComboBox
     Friend WithEvents dtpFechaFin As DateTimePicker
     Friend WithEvents dtpFechaInicio As DateTimePicker
+    Friend WithEvents CmbNombreActividadConsultar As ComboBox
 End Class

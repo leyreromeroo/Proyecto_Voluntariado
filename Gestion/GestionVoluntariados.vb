@@ -336,4 +336,33 @@ Public Class GestionVoluntariados
         conexion.Close()
         Return listaVoluntarios.AsReadOnly
     End Function
+
+    Public Function BuscarVoluntariado(codActividad As Integer) As Voluntariado
+        Dim voluntariado As Voluntariado = Nothing
+        Dim conexion As New SqlConnection(cadenaConexion)
+        Try
+            conexion.Open()
+            Dim consulta As String = "SELECT CODACTIVIDAD, CAPACIDAD, ESTADO, NOMBRE, FECHAINICIO, FECHAFIN, DESCRIPCION, NOMBRE_TIPOACT FROM ACTIVIDAD WHERE CODACTIVIDAD = @CodActividad"
+            Dim cmdBuscarVoluntariado As New SqlCommand(consulta, conexion)
+            cmdBuscarVoluntariado.Parameters.AddWithValue("@CodActividad", codActividad)
+            Dim drBuscarVoluntariado As SqlDataReader = cmdBuscarVoluntariado.ExecuteReader
+            If drBuscarVoluntariado.Read() Then
+                voluntariado = New Voluntariado(
+                    drBuscarVoluntariado("CODACTIVIDAD"),
+                    drBuscarVoluntariado("CAPACIDAD"),
+                    drBuscarVoluntariado("ESTADO"),
+                    drBuscarVoluntariado("NOMBRE"),
+                    drBuscarVoluntariado("FECHAINICIO"),
+                    drBuscarVoluntariado("FECHAFIN"),
+                    drBuscarVoluntariado("DESCRIPCION"),
+                    drBuscarVoluntariado("NOMBRE_TIPOACT")
+                )
+            End If
+        Catch ex As Exception
+            Throw New Exception("Error al buscar el voluntariado: " & ex.Message)
+        Finally
+            conexion.Close()
+        End Try
+        Return voluntariado
+    End Function
 End Class
