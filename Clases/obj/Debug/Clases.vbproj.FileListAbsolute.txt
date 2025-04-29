@@ -38,3 +38,13 @@ C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\Clases\obj\Debug\Clases.v
 C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\Clases\obj\Debug\Clases.dll
 C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\Clases\obj\Debug\Clases.xml
 C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\Clases\obj\Debug\Clases.pdb
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\bin\Debug\Clases.dll
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\bin\Debug\Clases.pdb
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\bin\Debug\Clases.xml
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\obj\Debug\Clases.vbproj.AssemblyReference.cache
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\obj\Debug\Clases.Resources.resources
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\obj\Debug\Clases.vbproj.GenerateResource.cache
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\obj\Debug\Clases.vbproj.CoreCompileInputs.cache
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\obj\Debug\Clases.dll
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\obj\Debug\Clases.xml
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\Clases\obj\Debug\Clases.pdb

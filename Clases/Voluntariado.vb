@@ -19,6 +19,14 @@
         Voluntarios = New List(Of Voluntario)()
     End Sub
 
+
+    Public Sub New(nombre As String, estado As String, codigoVol As String)
+        Me.Nombre = nombre
+        Me.Estado = estado
+        Me.Codigo = codigoVol
+    End Sub
+
+
     Public Sub New(codActividad As Integer, capacidad As Integer, estado As String, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, tipoAct As String)
         Me.Codigo = Codigo
         Tipo = tipoAct

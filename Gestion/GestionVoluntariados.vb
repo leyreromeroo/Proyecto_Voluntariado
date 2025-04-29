@@ -336,7 +336,7 @@ Public Class GestionVoluntariados
         conexion.Close()
         Return listaVoluntarios.AsReadOnly
     End Function
-
+    'Zona del último merge
     Public Function BuscarVoluntariado(codActividad As Integer) As Voluntariado
         Dim voluntariado As Voluntariado = Nothing
         Dim conexion As New SqlConnection(cadenaConexion)
@@ -365,4 +365,51 @@ Public Class GestionVoluntariados
         End Try
         Return voluntariado
     End Function
+
+    Public Function MostrarActividades() As List(Of Voluntariado)
+        Dim nombreActividad As String
+        Dim listaVoluntariados As New List(Of Voluntariado)
+        Dim conexion As New SqlConnection(cadenaConexion)
+        conexion.Open()
+        Dim consulta As String = $"SELECT ACTIVIDAD.NOMBRE, ACTIVIDAD.ESTADO, ACTIVIDAD.CODACTIVIDAD FROM ACTIVIDAD"
+        Dim cmdMostrarVoluntariados As New SqlCommand(consulta, conexion)
+        Dim drMostrarVoluntariados As SqlDataReader = cmdMostrarVoluntariados.ExecuteReader
+        Do While drMostrarVoluntariados.Read
+            nombreActividad = drMostrarVoluntariados("NOMBRE")
+            Dim vol As New Voluntariado(nombreActividad, drMostrarVoluntariados("ESTADO"), drMostrarVoluntariados("CODACTIVIDAD"))
+            listaVoluntariados.Add(vol)
+        Loop
+        conexion.Close()
+        Return listaVoluntariados
+    End Function
+
+
+    Public Function GuardarNuevoEstado(nuevoEstado As String, codigoVol As String) As String
+        Dim conexion As New SqlConnection(cadenaConexion)
+        conexion.Open()
+        Dim consulta As String = $"SELECT NOMBRE FROM ACTIVIDAD WHERE CODACTIVIDAD='{codigoVol}' AND ESTADO = '{nuevoEstado}'"
+        Dim cmdGuardarNuevoEstado As New SqlCommand(consulta, conexion)
+        Dim devuelveQuery As String = cmdGuardarNuevoEstado.ExecuteScalar()
+
+        If devuelveQuery Is Nothing Then
+            Dim consulta2 As String = $"UPDATE ACTIVIDAD SET ESTADO='{nuevoEstado}' WHERE CODACTIVIDAD='{codigoVol}'"
+            Dim cmdGuardarNuevoEstado2 As New SqlCommand(consulta, conexion)
+            Dim numeroFilas2 As Integer = cmdGuardarNuevoEstado2.ExecuteNonQuery()
+
+            If numeroFilas2 > 0 Then
+                conexion.Close()
+                Return "Cambio Guardado"
+            Else
+                conexion.Close()
+                Return "Error al guardar el cambio, vuelve a intentarlo"
+            End If
+        Else
+            Return "skibidi"
+        End If
+
+    End Function
+
+
+
+
 End Class
