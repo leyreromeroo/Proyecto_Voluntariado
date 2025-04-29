@@ -12,6 +12,10 @@ Public Class FrmPrincipal
     Private listaVoluntarios As New List(Of Voluntario)
     Private listaTipos As New List(Of TipoVoluntariado)
 
+    Private voluntariado1 As New Voluntariado
+    Dim idVol As String
+
+
     Dim gestor As New GestionVoluntariados
     Private Sub FrmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -23,6 +27,14 @@ Public Class FrmPrincipal
         Dim tiposActividades As List(Of TipoVoluntariado) = gestor.ListaTiposActivi()
         cboTipoActividad.DataSource = tiposActividades
         cboTipoActividad.DisplayMember = "Nombre"  ' Especificamos que se muestre la propiedad "Nombre"
+
+
+        Dim listaVoluntariados As List(Of Voluntariado) = gestion.MostrarActividades()
+        cmbActividades.DataSource = Nothing
+        cmbActividades.Items.Clear()
+        cmbActividades.DisplayMember = "Nombre"
+        cmbActividades.DataSource = listaVoluntariados
+
 
     End Sub
 
@@ -198,6 +210,31 @@ Public Class FrmPrincipal
             End If
         End If
     End Sub
+
+    Private Sub cmbActividades_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbActividades.SelectedIndexChanged
+        voluntariado1 = cmbActividades.SelectedItem
+        txtbEstado.Text = voluntariado1.Estado
+        idVol = voluntariado1.Codigo
+    End Sub
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If txtbEstado.Text.ToLower = "disponible" Then
+            voluntariado1.Estado = "COMPLETO"
+            txtbEstado.Text = voluntariado1.Estado
+        ElseIf txtbEstado.Text.ToLower = "completo" Then
+            voluntariado1.Estado = "DISPONIBLE"
+            txtbEstado.Text = voluntariado1.Estado
+        End If
+    End Sub
+
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        MessageBox.Show(gestion.GuardarNuevoEstado(txtbEstado.Text, idVol))
+    End Sub
+
+
+
 
 
 End Class

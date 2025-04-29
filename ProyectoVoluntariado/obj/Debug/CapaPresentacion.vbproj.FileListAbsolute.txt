@@ -105,3 +105,22 @@ C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\ProyectoVoluntariado\obj\
 C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.exe
 C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.xml
 C:\Users\leyre\Desktop\Prog ver2\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.pdb
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.exe.config
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.exe
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.pdb
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\ProyectoVoluntariado.xml
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.dll
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.dll
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.pdb
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Clases.xml
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.pdb
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\bin\Debug\Gestion.xml
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.AssemblyReference.cache
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.FrmPrincipal.resources
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.Resources.resources
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.GenerateResource.cache
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPresentacion.vbproj.CoreCompileInputs.cache
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\CapaPres.2A98DD23.Up2Date
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.exe
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.xml
+C:\Users\jrenz\Desktop\Proyecto-Voluntarido.Prog\Proyecto_Voluntariado\ProyectoVoluntariado\obj\Debug\ProyectoVoluntariado.pdb
