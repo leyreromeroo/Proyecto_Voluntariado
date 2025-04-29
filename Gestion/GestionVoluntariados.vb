@@ -1,12 +1,13 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Data.SqlClient
+Imports System.IO
 Imports Clases
 
 Public Class GestionVoluntariados
     Private ReadOnly _voluntariados As List(Of Voluntariado)
     'Private _servidor As String = Environment.MachineName
     'Private ReadOnly _servidorAlternativo As String = "."
-    Public cadenaConexion
+    Public cadenaConexion As String
 
     Public ReadOnly Property Voluntariados As List(Of Voluntariado)
         Get
@@ -14,18 +15,35 @@ Public Class GestionVoluntariados
         End Get
     End Property
 
+    'Public Sub New()
+    '    _voluntariados = New List(Of Voluntariado)()
+    '    'Comprobación para que la BBDD funcione siempre
+    '    Dim servidor As String
+    '    If Environment.MachineName = "4V-PRO-948" Then
+    '        servidor = "4V-PRO-948\SQLEXPRESS"
+    '    Else
+    '        servidor = "."
+    '    End If
+
+    '    cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
+    'End Sub
+
     Public Sub New()
         _voluntariados = New List(Of Voluntariado)()
-        'Comprobación para que la BBDD funcione siempre
         Dim servidor As String
-        If Environment.MachineName = "4V-PRO-948" Then
-            servidor = "4V-PRO-948\SQLEXPRESS"
-        Else
-            servidor = "."
-        End If
-
-        cadenaConexion = "Data Source = " & servidor & "; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
+        servidor = NombreServidor()
+        cadenaConexion = $"Data Source={servidor}; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
+        'conexion = New SqlConnection(cadenaConexion) La conexión se abre en cada función
     End Sub
+    Public Function NombreServidor() As String
+        If File.Exists("fichero.txt") Then
+            Dim lineas() As String = File.ReadAllLines("fichero.txt")
+            If lineas.Length > 0 Then
+                Return lineas(0)
+            End If
+        End If
+        Return "."
+    End Function
 
     Public Function CrearActividad(tipo As TipoVoluntariado, capacidad As Integer, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario)) As String
         Dim msgError As String = ""

@@ -111,6 +111,60 @@ Public Class FrmPrincipal
     End Sub
 
     Private Sub btnCrearActividad_Click(sender As Object, e As EventArgs) Handles btnCrearActividad.Click
+        If String.IsNullOrWhiteSpace(txtNombre.Text) OrElse String.IsNullOrWhiteSpace(txtCapacidad.Text) OrElse
+                  String.IsNullOrWhiteSpace(dtpFechaInicio.Text) OrElse String.IsNullOrWhiteSpace(dtpFechaFin.Text) OrElse
+                  String.IsNullOrWhiteSpace(txtDescripcion.Text) Then
+            MessageBox.Show("Por favor, completa todos los campos.")
+            Exit Sub
+        End If
+
+        If lstOdsAnyadidos.Items.Count = 0 Then
+            MessageBox.Show("Por favor, añade al menos una ODS.")
+            Exit Sub
+        End If
+
+        If lstbAlumnAnadidos.Items.Count = 0 Then
+            MessageBox.Show("Por favor, añade al menos un voluntario.")
+            Exit Sub
+        End If
+
+        If cboOrganizaciones.SelectedItem Is Nothing Then
+            MessageBox.Show("Por favor, selecciona una organización.")
+            Exit Sub
+        End If
+
+        If cboTipoActividad.SelectedItem Is Nothing Then
+            MessageBox.Show("Por favor, selecciona un tipo de actividad.")
+            Exit Sub
+        End If
+
+        Dim capacidad As Integer
+        If Not Integer.TryParse(txtCapacidad.Text, capacidad) OrElse capacidad < 1 Then
+            MessageBox.Show("La capacidad debe ser un número mayor que 1.")
+            Exit Sub
+        End If
+
+        Dim fechaInicio As Date, fechaFin As Date
+        If Not Date.TryParse(dtpFechaInicio.Text, fechaInicio) OrElse Not Date.TryParse(dtpFechaFin.Text, fechaFin) Then
+            MessageBox.Show("Las fechas deben ser válidas.")
+            Exit Sub
+        End If
+
+        If fechaInicio > fechaFin Then
+            MessageBox.Show("La fecha de inicio no puede ser posterior a la fecha de fin.")
+            Exit Sub
+        End If
+
+        If fechaInicio < DateTime.Now Then
+            MessageBox.Show("La fecha de inicio no puede ser anterior a la fecha actual.")
+            Exit Sub
+        End If
+
+        If fechaFin < DateTime.Now Then
+            MessageBox.Show("La fecha de fin no puede ser anterior a la fecha actual.")
+            Exit Sub
+        End If
+
         Dim odsSeleccionados As New List(Of ODS)
         Dim voluntariosSeleccionados As New List(Of Voluntario)
         Dim organizacion As Organizacion = TryCast(cboOrganizaciones.SelectedItem, Organizacion)
