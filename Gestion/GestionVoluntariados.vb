@@ -36,13 +36,21 @@ Public Class GestionVoluntariados
         'conexion = New SqlConnection(cadenaConexion) La conexión se abre en cada función
     End Sub
     Public Function NombreServidor() As String
-        If File.Exists("fichero.txt") Then
-            Dim lineas() As String = File.ReadAllLines("fichero.txt")
-            If lineas.Length > 0 Then
-                Return lineas(0)
+        Try
+            If File.Exists("fichero.txt") Then
+                Dim lineas() As String = File.ReadAllLines("fichero.txt")
+                If lineas.Length > 0 Then
+                    Return lineas(0)
+                Else
+                    Return "El fichero está vacío. Usando servidor por defecto."
+                End If
+            Else
+                File.WriteAllText("fichero.txt", ".")
+                Return "El fichero no existía. Se ha creado con el servidor por defecto."
             End If
-        End If
-        Return "."
+        Catch ex As Exception
+            Return $"Error al manejar el fichero: {ex.Message}"
+        End Try
     End Function
 
     Public Function CrearActividad(tipo As TipoVoluntariado, capacidad As Integer, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario)) As String

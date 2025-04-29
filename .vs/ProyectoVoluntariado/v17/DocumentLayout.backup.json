@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|solutionrelative:gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|c:\\users\\leyre\\desktop\\prog ver2\\proyecto_voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|solutionrelative:proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
@@ -15,12 +19,8 @@
       "RelativeMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|solutionrelative:proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|c:\\users\\leyre\\desktop\\prog ver2\\proyecto_voluntariado\\proyectovoluntariado\\frmprincipal.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\proyectovoluntariado\\frmprincipal.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|solutionrelative:proyectovoluntariado\\frmprincipal.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|c:\\users\\leyre\\desktop\\prog ver2\\proyecto_voluntariado\\gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|solutionrelative:gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15BB3DDE-8458-4CDC-9CEA-5626F058B390}|Clases\\Clases.vbproj|C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\clases\\voluntario.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FrmPrincipal.Designer.vb",
               "DocumentMoniker": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\ProyectoVoluntariado\\FrmPrincipal.Designer.vb",
               "RelativeDocumentMoniker": "ProyectoVoluntariado\\FrmPrincipal.Designer.vb",
@@ -75,13 +75,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "GestionVoluntariados.vb",
               "DocumentMoniker": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\Gestion\\GestionVoluntariados.vb",
               "RelativeDocumentMoniker": "Gestion\\GestionVoluntariados.vb",
               "ToolTip": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\Gestion\\GestionVoluntariados.vb",
               "RelativeToolTip": "Gestion\\GestionVoluntariados.vb",
-              "ViewState": "AgIAAHwBAAAAAAAAAAAAwFIBAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAIwCsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-04-07T12:16:40.142Z",
               "EditorCaption": ""
@@ -124,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FrmPrincipal.vb [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\ProyectoVoluntariado\\FrmPrincipal.vb",
               "RelativeDocumentMoniker": "ProyectoVoluntariado\\FrmPrincipal.vb",
@@ -136,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FrmPrincipal.vb",
               "DocumentMoniker": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\ProyectoVoluntariado\\FrmPrincipal.vb",
               "RelativeDocumentMoniker": "ProyectoVoluntariado\\FrmPrincipal.vb",
@@ -144,12 +144,11 @@
               "RelativeToolTip": "ProyectoVoluntariado\\FrmPrincipal.vb",
               "ViewState": "AgIAAAkBAAAAAAAAAAAAwB8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-07T11:31:16.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T11:31:16.635Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Voluntariado.vb",
               "DocumentMoniker": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\Clases\\Voluntariado.vb",
               "RelativeDocumentMoniker": "Clases\\Voluntariado.vb",
@@ -157,8 +156,7 @@
               "RelativeToolTip": "Clases\\Voluntariado.vb",
               "ViewState": "AgIAAA0AAAAAAAAAAAA7wB0AAAC2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-07T12:25:20.703Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T12:25:20.703Z"
             },
             {
               "$type": "Document",
