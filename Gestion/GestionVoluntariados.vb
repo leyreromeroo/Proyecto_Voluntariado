@@ -34,6 +34,7 @@ Public Class GestionVoluntariados
         servidor = NombreServidor()
         cadenaConexion = $"Data Source={servidor}; Initial Catalog = PROYECTO_VOLUNTARIADO2; Integrated Security = SSPI; MultipleActiveResultSets=true"
         'conexion = New SqlConnection(cadenaConexion) La conexión se abre en cada función
+        VerificarOCrearBaseDeDatos(servidor)
     End Sub
     Public Function NombreServidor() As String
         Try
@@ -52,6 +53,20 @@ Public Class GestionVoluntariados
             Return $"Error al manejar el fichero: {ex.Message}"
         End Try
     End Function
+
+    Private Sub VerificarOCrearBaseDeDatos(servidor As String)
+        Dim cadenaConexionMaster As String = $"Data Source={servidor}; Initial Catalog=master; Integrated Security=SSPI;"
+        Using conexion As New SqlConnection(cadenaConexionMaster)
+            Try
+                conexion.Open()
+                Dim consultaVerificar As String = "IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'PROYECTO_VOLUNTARIADO2') CREATE DATABASE PROYECTO_VOLUNTARIADO2;"
+                Dim cmdVerificar As New SqlCommand(consultaVerificar, conexion)
+                cmdVerificar.ExecuteNonQuery()
+            Catch ex As Exception
+                Throw New Exception($"Error al verificar o crear la base de datos: {ex.Message}")
+            End Try
+        End Using
+    End Sub
 
     Public Function CrearActividad(tipo As TipoVoluntariado, capacidad As Integer, nombre As String, fechaInicio As Date, fechaFin As Date, descripcion As String, nif_org As Organizacion, listaODS As List(Of ODS), listaVoluntarios As List(Of Voluntario)) As String
         Dim msgError As String = ""
