@@ -401,7 +401,7 @@ Public Class GestionVoluntariados
 
         If devuelveQuery Is Nothing Then
             Dim consulta2 As String = $"UPDATE ACTIVIDAD SET ESTADO='{nuevoEstado}' WHERE CODACTIVIDAD='{codigoVol}'"
-            Dim cmdGuardarNuevoEstado2 As New SqlCommand(consulta, conexion)
+            Dim cmdGuardarNuevoEstado2 As New SqlCommand(consulta2, conexion)
             Dim numeroFilas2 As Integer = cmdGuardarNuevoEstado2.ExecuteNonQuery()
 
             If numeroFilas2 > 0 Then
@@ -412,7 +412,7 @@ Public Class GestionVoluntariados
                 Return "Error al guardar el cambio, vuelve a intentarlo"
             End If
         Else
-            Return "skibidi"
+            Return "Error: No puedes poner el mismo estado que antes"
         End If
 
     End Function

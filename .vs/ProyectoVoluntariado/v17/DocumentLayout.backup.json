@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|c:\\users\\leyre\\desktop\\prog ver2\\proyecto_voluntariado\\gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{5F04AD4A-1164-45D9-96BA-DEDB17559537}|Gestion\\Gestion.vbproj|solutionrelative:gestion\\gestionvoluntariados.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|c:\\users\\leyre\\desktop\\prog ver2\\proyecto_voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{A2D0BE25-D3BE-4F96-BBF7-5B45BF2A3598}|ProyectoVoluntariado\\CapaPresentacion.vbproj|solutionrelative:proyectovoluntariado\\frmprincipal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
@@ -70,8 +70,7 @@
               "RelativeToolTip": "ProyectoVoluntariado\\FrmPrincipal.Designer.vb",
               "ViewState": "AgIAAHcBAAAAAAAAAAAuwH8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-29T21:48:51.835Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T21:48:51.835Z"
             },
             {
               "$type": "Document",
@@ -81,7 +80,7 @@
               "RelativeDocumentMoniker": "Gestion\\GestionVoluntariados.vb",
               "ToolTip": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\Gestion\\GestionVoluntariados.vb",
               "RelativeToolTip": "Gestion\\GestionVoluntariados.vb",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAIwCsAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAIYBAAAAAAAAAAAAAKMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-04-07T12:16:40.142Z",
               "EditorCaption": ""
@@ -131,8 +130,7 @@
               "ToolTip": "C:\\Users\\leyre\\Desktop\\Prog ver2\\Proyecto_Voluntariado\\ProyectoVoluntariado\\FrmPrincipal.vb [Dise\u00F1o]",
               "RelativeToolTip": "ProyectoVoluntariado\\FrmPrincipal.vb [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-04-07T11:28:43.299Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-04-07T11:28:43.299Z"
             },
             {
               "$type": "Document",
