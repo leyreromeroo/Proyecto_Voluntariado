@@ -14,6 +14,12 @@ Public Class FrmPrincipal
 
     Private voluntariado1 As New Voluntariado
     Dim idVol As String
+    Dim listaCursos As List(Of String)
+
+
+
+
+
 
 
     Dim gestor As New GestionVoluntariados
@@ -42,6 +48,11 @@ Public Class FrmPrincipal
         cmbActividades.Items.Clear()
         cmbActividades.DisplayMember = "Nombre"
         cmbActividades.DataSource = listaVoluntariados
+        'Dim listaCursos As List(Of String) = gestion.MostrarCursos
+        'cmbCurso.DataSource = Nothing
+        'cmbCurso.Items.Clear()
+        'cmbCurso.DataSource = listaCursos
+
 
 
     End Sub
@@ -285,6 +296,30 @@ Public Class FrmPrincipal
         MessageBox.Show(gestion.GuardarNuevoEstado(txtbEstado.Text, idVol))
     End Sub
 
+    Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
 
+    End Sub
 
+    Private Sub cmbCurso_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCurso.SelectedIndexChanged
+        Dim añofechaIni As String
+        Dim añofechaFin As String
+        Dim fechaIni As Date
+        Dim fechaFin As Date
+
+        añofechaIni = cmbCurso.SelectedItem.ToString.Substring(0, 4)
+        añofechaFin = cmbCurso.SelectedItem.ToString.Substring(cmbCurso.SelectedItem.ToString.Length - 4)
+        fechaIni = "9-7-" + añofechaIni
+        fechaFin = "4-6-" + añofechaFin
+        Dim actividades As List(Of Voluntariado) = gestion.ActividadPorFecha(fechaIni, fechaFin)
+        lstbCursos.Items.Clear()
+        If actividades.Count = 0 Then
+            lstbCursos.Items.Add("Sin actividades")
+        End If
+        For Each voluntariado As Voluntariado In actividades
+
+            lstbCursos.Items.Add(voluntariado.Nombre)
+
+        Next
+
+    End Sub
 End Class

@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Security.Cryptography.X509Certificates
 Imports Clases
 
 Public Class GestionVoluntariados
@@ -415,6 +416,38 @@ Public Class GestionVoluntariados
             Return "skibidi"
         End If
 
+    End Function
+
+    Public Function ActividadPorFecha(fechaIni As Date, fechaFin As Date) As List(Of Voluntariado)
+        Dim conexion As New SqlConnection(cadenaConexion)
+        conexion.Open()
+        Dim nombreActividad As String
+        Dim listaVoluntariados As New List(Of Voluntariado)
+        Dim consulta As String = $"SELECT ACTIVIDAD.NOMBRE FROM ACTIVIDAD WHERE FECHAINICIO BETWEEN '{fechaIni}' AND '{fechaFin}'"
+        Dim cmdActividadPorFecha As New SqlCommand(consulta, conexion)
+        Dim drActividadPorFecha As SqlDataReader = cmdActividadPorFecha.ExecuteReader()
+        Do While drActividadPorFecha.Read
+            nombreActividad = drActividadPorFecha("NOMBRE")
+            Dim vol As New Voluntariado(nombreActividad)
+            listaVoluntariados.Add(vol)
+        Loop
+        conexion.Close()
+        Return listaVoluntariados
+
+    End Function
+
+    Public Function MostrarCursos() As List(Of String)
+        Dim listaCursos As New List(Of String)
+        Dim año1 As Integer = 2019
+        Dim año2 As Integer = 2020
+        For i As Integer = 0 To 5
+
+            Dim curso As String = año1.ToString + "-" + año2.ToString
+            listaCursos.Add(curso)
+            año1 = año1 + 1
+            año2 = año2 + 1
+        Next
+        Return listaCursos
     End Function
 
 

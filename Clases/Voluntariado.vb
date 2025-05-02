@@ -52,6 +52,11 @@
         Me.Nombre = nombre
     End Sub
 
+    Public Sub New(nombre As String)
+        Me.Nombre = nombre
+    End Sub
+
+
     Public Overrides Function Equals(obj As Object) As Boolean
         Return Equals(TryCast(obj, Voluntariado))
     End Function
